@@ -1,0 +1,11 @@
+<div class="slider">
+
+  <owl-carousel [options]="{items: 1, dots: false, navigation: true}" [items]="hinhAnhs"
+    [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    <div class="item" *ngFor="let image of hinhAnhs;let i = index">
+      <div class="thumbnail-image">
+        <img [src]="image" />
+      </div>
+    </div>
+  </owl-carousel>
+</div>

@@ -1,0 +1,138 @@
+.poster {
+  color: white;
+  height: 750px;
+  position: relative;
+  top: 0;
+  left: 0;
+  
+  img:nth-child(1) {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(15px);
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    box-shadow: 0px 17px 65px 60px rgb(10, 32, 41);
+    background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+  }
+
+  .detail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: 10;
+    justify-content: space-between;
+
+    .detail_phim {
+      display: flex;
+
+      color: white;
+
+      .detail_phim_img {
+        img {
+          filter: none;
+        }
+      }
+
+      .detail_phim_info {
+        margin-left: 15px;
+        text-align: left;
+        padding-top: 15%;
+        font-size: 18px;
+
+        button {
+          display: block;
+          margin-top: 25px;
+          font-size: 18px;
+          padding: 10px 55px;
+        }
+
+        span#star {
+          display: inline-block;
+          margin-top: 25px;
+          font-size: 30px;
+          color: yellow;
+        }
+
+      }
+    }
+
+    .rate {
+      width: 60%;
+      height: 100%;
+      p{
+        margin-top: 5px;
+        letter-spacing: 2px;
+        line-height: 20px;
+      }
+
+    }
+  }
+
+  // main ingo
+  .mainInfo {
+    margin-top: 100px;
+
+    text-align: center;
+    width: 80%;
+    margin: 100px auto;
+
+    .mainInfo_list {
+      color: white;
+      display: flex;
+      // justify-content: space-around;
+      align-content: center;
+      justify-content: center;
+      list-style-type: none;
+      margin-bottom: 50px;
+
+      .active {
+        color: #FB4226;
+      }
+
+      li {
+        margin: 0 15px;
+        font-size: 20px;
+
+        &:hover {
+          color: #FB4226;
+          transition: all 0.5s;
+        }
+      }
+    }
+
+    .lichChieu {
+      color: black;
+      background-color: #fff;
+      margin: 0 auto;
+      border-radius: 5px;
+
+      .gioChieu {
+        padding: 10px 30px;
+        text-align: left;
+
+        button {
+          font-size: 40px;
+          padding: 20px;
+        }
+      }
+    }
+  }
+
+
+}

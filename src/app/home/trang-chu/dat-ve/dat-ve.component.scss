@@ -1,0 +1,23 @@
+.btn {
+  border: 1px solid orange;
+  outline: none;
+  padding: 10px 35px;
+  border-radius: 10px;
+  background: none;
+  color: orange;
+  cursor: pointer;
+  transition: 0.25s;
+  margin: 5px;
+
+  &:hover {
+    border-color: #19bc8b;
+    color: #fff;
+    box-shadow: inset 6.5em 0 0 0 #19bc8b;
+  }
+}
+
+.active {
+  border-color: #19bc8b;
+  color: #fff;
+  background-color: #19bc8b;
+}

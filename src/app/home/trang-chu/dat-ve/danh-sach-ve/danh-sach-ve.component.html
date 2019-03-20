@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="screen">
+    <h1>SCREEN</h1>
+  </div>
+  <div class="seats">
+    <!-- repeat -->
+    <ng-container *ngFor="let ghe of DSGhe.DanhSachGhe">
+      <app-dat-ve [inputGhe]="ghe" (outputGhe)=datGhe($event)></app-dat-ve>
+    </ng-container>
+    <!-- thông tin đặt vé -->
+    <div class="veInfo">
+      <h3>Thông tin đặt vé</h3>
+      <p>Ghế: <span class="tenGhes" *ngFor="let gheDaDat of MangGheDat">{{ gheDaDat.TenGhe }}, </span></p>
+      <p>Giá vé:<span class="giaGhes"> {{ TongTien | number : '1.2-2'}}</span></p>
+      <button mat-raised-button color="warn" (click)="datVe()">Thanh toán</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #FEFCF9;
+  opacity: 0.8;
+  z-index: 999;
+  // -webkit-box-shadow: 0px 17px 65px -15px;
+  // -moz-box-shadow: 0px 17px 65px -15px;
+  // box-shadow: 0px 17px 65px -15px;
+
+  .header_li {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+
+    ul {
+      color: black;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 auto;
+      align-self: center;
+
+      li {
+        padding: 20px 20px;
+        letter-spacing: 1px;
+        transition: color 0.5s;
+
+        &:hover {
+          color: brown;
+          cursor: pointer;
+
+        }
+      }
+    }
+
+    .login_signup {
+      padding-top: 20px;
+      span{
+        margin-right: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+
+}

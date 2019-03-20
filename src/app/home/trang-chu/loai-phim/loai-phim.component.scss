@@ -1,0 +1,28 @@
+@import '../../../../assets/mixin/rubberBandAnimate.scss';
+.container {
+  margin: 0 180px;
+  padding-top: 30px;
+
+  .loaiPhim {
+    text-align: center;
+
+    .active {
+      color: #FF0000;
+      font-size: 25px;
+    }
+
+    span {
+      font-size: 20px;
+      color: black;
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 15px;
+
+      &:hover {
+        @include rubberBand();
+        color: #FF0000;
+      }
+    }
+  }
+  
+}

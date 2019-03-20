@@ -1,0 +1,7 @@
+<div class="listPhim ">
+  <ng-container *ngFor="let phim of onGoingPhims; let stt=index">
+    <div class="phim">
+      <app-phim [ipPhim]="phim" ></app-phim>
+    </div>
+  </ng-container>
+</div>

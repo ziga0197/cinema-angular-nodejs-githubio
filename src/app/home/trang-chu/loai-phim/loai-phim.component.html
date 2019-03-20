@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="loaiPhim">
+    <span (click)="changeState()" [ngClass]="{'active': status}">
+      Phim đang chiếu
+    </span>
+    <span (click)="changeState()" [ngClass]="{'active': !status}">Phim sắp chiếu</span>
+  </div>
+  <ng-container *ngIf="status; then onGoing else comingSoon">
+  </ng-container>
+
+
+</div>
+
+<ng-template #onGoing>
+  <app-on-going></app-on-going>
+</ng-template>
+
+<ng-template #comingSoon>
+  <app-coming-soon></app-coming-soon>
+</ng-template>

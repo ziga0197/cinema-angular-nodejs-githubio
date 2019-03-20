@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, Event, NavigationError } from '@angular/router';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie-page';
+
+  constructor(private loadingBar: LoadingBarService) {
+  }
+
+  startLoading() {
+    this.loadingBar.start();
+  }
+
+  stopLoading() {
+    this.loadingBar.complete();
+  }
 }

@@ -1,0 +1,17 @@
+.card_phim {
+  height: 100%;
+  .phimCard {
+    margin-top: 15px;
+    height: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    mat-card {}
+
+    img {
+      height: 350px;
+    }
+  }
+}
