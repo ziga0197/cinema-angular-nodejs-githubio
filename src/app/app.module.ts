@@ -26,7 +26,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     HttpClientModule,
     LoadingBarHttpClientModule,
     LoadingBarModule,
-    OwlModule
+    OwlModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
