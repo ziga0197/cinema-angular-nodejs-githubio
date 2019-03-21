@@ -5,6 +5,7 @@ import { ChitietphimComponent } from './home/trang-chu/chitietphim/chitietphim.c
 import { DatVeComponent } from './home/trang-chu/dat-ve/dat-ve.component';
 import { DanhSachVeComponent } from './home/trang-chu/dat-ve/danh-sach-ve/danh-sach-ve.component';
 import { LoginComponent } from './home/trang-chu/header/login/login.component';
+import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
     path: 'chi-tiet-phim/:maphim', component: ChitietphimComponent
   },
   {
-    path: 'phong-ve/:malichchieu', component: DanhSachVeComponent
+    path: 'phong-ve/:malichchieu', component: DanhSachVeComponent,canActivate: [LoginGuard]
   },
   {
     path: 'dang-nhap', component: LoginComponent

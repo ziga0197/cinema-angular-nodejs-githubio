@@ -3,9 +3,16 @@
     margin: 10% auto 0;
     background-color: #fff;
     text-align: center;
+    h1{
+        letter-spacing: 3px;
+        padding-top: 25px;
+    }
     form{
         .tk{
             width: 80%;
+        }
+        button{
+            margin-bottom: 25px;
         }
     }
 }

@@ -76,17 +76,7 @@ export class DanhSachVeComponent implements OnInit {
   // Đặt vé
   datVe() {
     this.VeDat.MaLichChieu = this.MaLichChieu;
-    // console.log(this.VeDat.MaLichChieu);
-    // console.log(this.MaLichChieu);
-    this.VeDat.TaiKhoanNguoiDung = 'haidang';
-    // this.MangGheDat.forEach(gheDaDat => {
-    //   this.VeDat.DanhSachVe.push(
-    //     { MaGhe: 2, GiaVe: 75000 }
-    //   )
-    // });
-    // this.VeDat.DanhSachVe.push(
-    //   { MaGhe: 2, GiaVe: 75000 }
-    // )
+    this.VeDat.TaiKhoanNguoiDung = 'darkness';
     console.log(this.VeDat);
     this._http.postDatVe(this.VeDat).subscribe(
       (res) => {

@@ -8,8 +8,8 @@ export class UserService {
 
   constructor(private _userHttp: HttpClient) { }
 
-  getNguoiDungDangNhap(taikhoan, matkhau) {
-    this._userHttp.get(`http://sv2.myclass.vn/api/QuanLyNguoiDung/DangNhap?taikhoan=${taikhoan}&matkhau=${matkhau}`,
+  getNguoiDungDangNhap(taikhoan:string, matkhau:string) {
+    return this._userHttp.post(`http://svcy2.myclass.vn/api/QuanLyNguoiDung/DangNhap?taikhoan=${taikhoan}&matkhau=${matkhau}`,
       {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8'

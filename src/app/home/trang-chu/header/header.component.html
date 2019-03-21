@@ -9,8 +9,15 @@
     </ul>
     <div class="login_signup">
       <!-- login/signup -->
-      <i class="fa fa-user" aria-hidden="true"></i>
-      <span (click)="logIn()">Đăng nhập</span>
+      <ng-container *ngIf="userName!=null">
+        <span>Chào {{ userName }}</span>
+        <span style="color: brown; font-style: italic" (click)="logOut()">Đăng Xuất</span>
+      </ng-container>
+      <ng-container *ngIf="userName==null">
+        <span (click)="logIn()">Đăng Nhập</span>
+      </ng-container>
+
+
     </div>
   </div>
 
