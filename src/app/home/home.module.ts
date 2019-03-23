@@ -24,6 +24,7 @@ import { VeComponent } from './trang-chu/dat-ve/ve/ve.component';
 import { DanhSachVeComponent } from './trang-chu/dat-ve/danh-sach-ve/danh-sach-ve.component';
 import { LoginComponent } from './trang-chu/header/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './trang-chu/footer/footer.component';
 // import {YoutubeEPipe} from '../pipes/youtube-e.pipe';
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DatVeComponent,
     VeComponent,
     DanhSachVeComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
 
   ],
   imports: [
@@ -68,7 +70,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SliderComponent,
     PhimComponent,
     ChitietphimComponent,
-    YoutubeEPipe
+    YoutubeEPipe,
+    FooterComponent
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
