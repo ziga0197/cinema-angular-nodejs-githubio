@@ -1,0 +1,14 @@
+@import '../../../assets/scss/admin/helper/variable';
+@import '../../../assets/scss/admin/helper/mixin';
+
+
+.main_container{
+   background: $color-gray-0;
+   display: flex;
+   font-family: 'Open Sans', sans-serif;
+   .main{
+      flex-grow: 1;
+      overflow: hidden;
+   }
+   
+}
