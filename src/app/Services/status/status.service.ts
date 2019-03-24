@@ -6,11 +6,14 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 export class StatusService {
   @Output() OutPutStatusUser = new EventEmitter();
   @Output() OutputStatusMovie = new EventEmitter();
+  @Output() OutputStatusAdmin = new EventEmitter();
   private StatusEditUser: boolean;
   private StatusEditMovie: boolean;
+  private StatusEditAdmin: string;
   constructor() {
     this.StatusEditUser = false;
     this.StatusEditMovie = false;
+    this.StatusEditAdmin = 'normal';
   }
 
   ChangeStatusEditUser(stt: boolean) {
@@ -21,5 +24,11 @@ export class StatusService {
   ChangeStatusEditMovie(stt: boolean) {
     this.StatusEditMovie = stt;
     this.OutputStatusMovie.emit(this.StatusEditMovie);
+  }
+
+  ChangeStatusEditAdmin(stt: string) {
+    // normal: trạng thái bình thường , edit: mở form chỉnh sửa, update : cập nhật damin
+    this.StatusEditAdmin = stt;
+    this.OutputStatusAdmin.emit(this.StatusEditAdmin);
   }
 }
