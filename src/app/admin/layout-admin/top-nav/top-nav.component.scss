@@ -1,0 +1,104 @@
+@import '../../../../assets/scss/admin/helper/variable';
+@import '../../../../assets/scss/admin/helper/mixin';
+@import '../../../../assets/scss/admin/helper/animation';
+
+.top_nav{
+    height:60px;
+    background:$color-white;
+    box-shadow: 6px -5px 12px 0px;
+    display:flex;
+    justify-content: space-between;
+    position: relative;
+
+    .toggle_sidebar{
+        line-height: 60px;
+        @include text($fs-0 + 5,$fw-normal,$color-orange-1);
+        margin-left:30px;
+        cursor: pointer;
+
+        &:hover{
+            color:$color-gray-3;
+        }
+    }
+    .admin_info{
+        height: 100%;
+        margin:0 40px;
+        display: flex;
+        cursor: pointer;
+        i{
+            @include text($fs-1,$fw-normal,$color-gray-3);
+            align-self: center;
+        }
+        .name_admin{
+            display: inline-block;
+            align-self: center;
+            padding:0 10px;
+            @include text($fs-1 - 7,$fw-600,$color-gray-3);
+
+            +i{
+                font-size:$fs-0 - 3;
+            }
+        }
+
+        &:hover{
+            .name_admin{
+                color:$color-orange-1;
+            }
+        }
+    }
+
+    .user_option{
+        position: absolute;
+        background: $color-white;
+        right: 40px;
+        top: 101%;
+        margin-bottom:0;
+        padding: 0;
+        box-shadow: 1px 2px 7px 0px;
+        overflow: hidden;
+        height:0px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+
+        &.active{
+            height:89.6px;
+        }
+        .option_item{
+            list-style-type: none;
+
+            .item_link{
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+                padding:10px 30px;
+                width: 100%;
+                @include text($fs-0 - 1,$fw-normal,$color-gray-3);
+
+                span{
+                    margin-right:5px;
+                    font-size:$fs-0 + 1;
+                }
+
+                &:hover{
+                    background:rgba($color: $color-gray-0, $alpha: 0.5);
+                }
+            }
+        }
+    }
+}
+
+.demo{
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transition: all 0.6;
+    -webkit-transition: all 0.6;
+    -moz-transition: all 0.6;
+    -ms-transition: all 0.6;
+    -o-transition: all 0.6;
+}
