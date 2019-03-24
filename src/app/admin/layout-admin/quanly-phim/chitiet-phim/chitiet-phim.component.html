@@ -1,0 +1,48 @@
+<div id="chiTietPhim" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Chi tiết phim</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+         <div class="row mb-4">
+            <div class="col-lg-4">
+              <img [src]="phim.HinhAnh" [alt]="phim.TenPhim">
+            </div>
+           <div class="col-lg-8 thongtin_phim">
+              <p class="ma_phim">
+                <span>Mã phim : </span>
+                {{phim.MaPhim}}
+              </p>
+              <p class="ten_phim">
+                <span>Tên phim : </span>
+                {{phim.TenPhim}}
+              </p>
+              <p class="danh_gia">
+                <span>Đánh giá : </span>
+                {{phim.DanhGia}} / 5
+              </p>
+              <p>
+                <span>Ngày khởi chiếu : </span>
+                {{phim.NgayKhoiChieu | date:'d/MM/y'}}
+              </p>
+              <p>
+                <span>Mô tả : </span>
+                {{phim.MoTa}}
+              </p>
+           </div>
+         </div>
+         <iframe width="100%" height="345" [src]="phim.Trailer | safeLink">
+         </iframe>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-warning" (click)="OpenModalEditMovie()" data-dismiss="modal" data-toggle="modal" data-target="#FormPhim">Chỉnh sửa</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

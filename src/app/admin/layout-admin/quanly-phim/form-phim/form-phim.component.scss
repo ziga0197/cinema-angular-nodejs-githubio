@@ -1,0 +1,8 @@
+@import '../../../../../assets/scss/admin/helper/variable';
+@import '../../../../../assets/scss/admin/helper/mixin';
+@import '../../../../../assets/scss/admin/helper/extend';
+
+#FormPhim{
+    overflow-y: auto;
+    @extend %modal;
+}

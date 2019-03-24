@@ -1,0 +1,46 @@
+<section class="content_box">
+  <h2 class="title">
+    Danh sách phim
+    <button class="btn btn-success" (click)="OpenModalAddMovie()" data-toggle="modal" data-target="#FormPhim">
+      <i class="fa fa-film" aria-hidden="true"></i>
+      <i class="fa fa-plus ml-1" aria-hidden="true"></i>
+    </button>
+  </h2>
+  <div class="content">
+    <div class="search">
+        <span>Tìm kiếm :</span>
+        <input class="search_bar"  placeholder="Nhập tên phim..." (keyup)="TimKiemPhim($event)" />
+    </div>
+    <div class="data_table">
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr class="text-center">
+                    <th>STT</th>
+                    <th class="text-left">Tên phim</th>
+                    <th >Hình ảnh</th>
+                    <th >Mã phim</th>
+                    <th >Ngày chiếu</th>
+                    <th>Thao tác</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center"
+                  *ngFor="let phim of DS_Phim | paginate: { itemsPerPage: itemsPerPage, currentPage: page}; let i = index"
+                  [phim]="phim"
+                  [index] = "GetAbsoluteIndex(i,page)"
+                  (ThongTinPhim) = "LayThongTinPhim($event)"
+                  (EventXoaPhim) = "XoaPhim($event)"
+                  app-phim
+                  ></tr>
+            </tbody>
+          </table>
+          <pagination-controls class="pagination_cus"
+          (pageChange)="page = $event"
+          autoHide="true"
+          ></pagination-controls>
+    </div>
+  </div>
+</section>
+
+<app-chitiet-phim (eventCapNhatPhim)="LayThongTinPhim($event)" [phim]="ThongTinPhim"></app-chitiet-phim>
+<app-form-phim #formPhim [iPhim]="ThongTinPhim" (EventCapNhatPhim)="HandleCapNhatPhim($event)" (EventThemPhim)="ThemPhim($event)"></app-form-phim>

@@ -1,0 +1,16 @@
+<td>{{index+1}}</td>
+<td class="movie_name text-left">{{phim.TenPhim}}</td>
+<td>
+  <img [src]="phim.HinhAnh"/>
+</td>
+<td>{{phim.MaPhim}}</td>
+<td>{{phim.NgayKhoiChieu | date:'d/MM/y'}}</td>
+<td>
+  <button class="btn btn-info" (click)="LayThongTinPhim()" data-toggle="modal" data-target="#chiTietPhim">
+    <i class="fa fa-eye" aria-hidden="true"></i>
+  </button>
+  <button class="btn btn-warning mx-2" (click)="OpenModalEditMovie()" (click)="LayThongTinPhim()" data-toggle="modal" data-target="#FormPhim">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  </button>
+  <button class="btn btn-danger" (click)="XoaPhim()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+</td>
