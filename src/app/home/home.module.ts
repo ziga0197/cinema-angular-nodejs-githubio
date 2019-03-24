@@ -73,7 +73,7 @@ const homeRoutes: Routes = [
     CommonModule,
     AngularFontAwesomeModule,
     OwlModule,
-    BrowserAnimationsModule,
+    // BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
@@ -84,10 +84,10 @@ const homeRoutes: Routes = [
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    
     CommonModule,
     RouterModule.forChild(homeRoutes),
-    LoadingBarModule,
-    BrowserModule
+    LoadingBarModule
   ],
   exports: [
     TrangChuComponent,
@@ -100,7 +100,8 @@ const homeRoutes: Routes = [
     ChitietphimComponent,
     YoutubeEPipe,
     FooterComponent,
-    HomeRoutesComponent
+    HomeRoutesComponent,
+    // RouterModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }

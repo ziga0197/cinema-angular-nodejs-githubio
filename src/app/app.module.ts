@@ -12,22 +12,30 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { OwlModule } from 'ngx-owl-carousel';
+import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeRoutesComponent } from './home/trang-chu/home-routes/home-routes.component';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    BrowserAnimationsModule,
+    
+    // BrowserModule,
+    // HomeModule,
+    // BrowserAnimationsModule,
     MatProgressBarModule,
     HttpClientModule,
     LoadingBarHttpClientModule,
     LoadingBarModule,
     OwlModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule,
+    AppRoutingModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

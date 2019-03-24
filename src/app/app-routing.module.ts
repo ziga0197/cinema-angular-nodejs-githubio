@@ -8,24 +8,21 @@ import { LoginComponent } from './home/trang-chu/header/login/login.component';
 import { LoginGuard } from './guard/login.guard';
 import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
-    path: 'home', loadChildren: ()=> HomeModule
+    path: '', loadChildren: './home/home.module#HomeModule'
   },
-  // {
-  //   path: 'chi-tiet-phim/:maphim', component: ChitietphimComponent
-  // },
-  // {
-  //   path: 'phong-ve/:malichchieu', component: DanhSachVeComponent,canActivate: [LoginGuard]
-  // },
-  // {
-  //   path: 'dang-nhap', component: LoginComponent
-  // }
+  {
+    path: 'home', loadChildren: './home/home.module#HomeModule'
+  }
 ];
 
 @NgModule({
   imports: [
+    CommonModule,
+    // chỉ import browserModule 1 lần trong toàn ứng dụng
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
@@ -34,4 +31,3 @@ const routes: Routes = [
   ]
 })
 export class AppRoutingModule { }
-export const routingApp = [TrangChuComponent];

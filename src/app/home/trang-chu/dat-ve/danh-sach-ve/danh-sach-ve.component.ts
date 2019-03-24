@@ -21,7 +21,7 @@ export class DanhSachVeComponent implements OnInit {
     MaLichChieu: 0,
     TaiKhoanNguoiDung: 'ads',
     DanhSachVe: [
-      { MaGhe: 1, GiaVe: 75000 }
+      { MaGhe: 20, GiaVe: 75000 }
     ]
   };
 
