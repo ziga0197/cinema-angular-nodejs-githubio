@@ -25,7 +25,31 @@ import { DanhSachVeComponent } from './trang-chu/dat-ve/danh-sach-ve/danh-sach-v
 import { LoginComponent } from './trang-chu/header/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './trang-chu/footer/footer.component';
+import { Routes, RouterModule } from '@angular/router';
+import { LoginGuard } from '../guard/login.guard';
+import { HomeRoutesComponent } from './trang-chu/home-routes/home-routes.component';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { BrowserModule } from '@angular/platform-browser';
 // import {YoutubeEPipe} from '../pipes/youtube-e.pipe';
+const homeRoutes: Routes = [
+  {
+    path: '', component: HomeRoutesComponent, children: [
+      {
+        path: '', component: TrangChuComponent
+      },
+      {
+        path: 'chi-tiet-phim/:maphim', component: ChitietphimComponent
+      },
+      {
+        path: 'phong-ve/:malichchieu', component: DanhSachVeComponent, canActivate: [LoginGuard]
+      },
+      {
+        path: 'dang-nhap', component: LoginComponent
+      }
+    ]
+  },
+
+]
 @NgModule({
   declarations: [
     TrangChuComponent,
@@ -42,8 +66,8 @@ import { FooterComponent } from './trang-chu/footer/footer.component';
     VeComponent,
     DanhSachVeComponent,
     LoginComponent,
-    FooterComponent
-
+    FooterComponent,
+    HomeRoutesComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +83,11 @@ import { FooterComponent } from './trang-chu/footer/footer.component';
     PipesModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    RouterModule.forChild(homeRoutes),
+    LoadingBarModule,
+    BrowserModule
   ],
   exports: [
     TrangChuComponent,
@@ -71,7 +99,8 @@ import { FooterComponent } from './trang-chu/footer/footer.component';
     PhimComponent,
     ChitietphimComponent,
     YoutubeEPipe,
-    FooterComponent
+    FooterComponent,
+    HomeRoutesComponent
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
