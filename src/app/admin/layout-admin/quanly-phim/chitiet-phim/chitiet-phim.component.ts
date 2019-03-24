@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { StatusService } from 'src/app/Services/status/status.service';
+import { StatusService } from 'src/app/services/status/status.service';
 
 @Component({
   selector: 'app-chitiet-phim',

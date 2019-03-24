@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Phim } from 'src/app/Models/Phim';
+import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -8,7 +8,7 @@ import { Phim } from 'src/app/Models/Phim';
   styleUrls: ['./phim-lc.component.scss']
 })
 export class PhimLcComponent implements OnInit {
-  @Input() phim: Phim;
+  @Input() phim: PhimAdmin;
   @Input() index: number;
   constructor() { }
 

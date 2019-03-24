@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild, Input, OnChanges } from '@angular/core';
-import { StatusService } from 'src/app/Services/status/status.service';
+import { StatusService } from 'src/app/services/status/status.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PhimService } from 'src/app/Services/phim/phim.service';
-import { Phim } from 'src/app/Models/Phim';
 import { DatePipe } from '@angular/common';
+import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
+import { PhimService } from 'src/app/services/phim.service';
 
 @Component({
   selector: 'app-form-phim',
@@ -12,7 +12,7 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe],
 })
 export class FormPhimComponent implements OnInit, OnChanges {
-  @Input() iPhim: Phim;
+  @Input() iPhim: PhimAdmin;
   @Output() EventThemPhim = new EventEmitter();
   @Output() EventCapNhatPhim = new EventEmitter();
   @ViewChild('imageInput') imageInput: ElementRef;

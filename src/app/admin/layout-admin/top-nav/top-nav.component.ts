@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { NguoiDung } from 'src/app/Models/NguoiDung';
+import { NguoiDung } from 'src/app/_core/model/NguoiDung';
 
 @Component({
   selector: 'app-top-nav',

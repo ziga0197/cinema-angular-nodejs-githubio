@@ -2,9 +2,10 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, OnChanges} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 // models
-import { NguoiDung } from 'src/app/Models/NguoiDung';
+import { NguoiDung } from 'src/app/_core/model/NguoiDung';
 // services
-import { StatusService } from 'src/app/Services/status/status.service';
+import { StatusService } from 'src/app/services/status/status.service';
+
 
 
 @Component({

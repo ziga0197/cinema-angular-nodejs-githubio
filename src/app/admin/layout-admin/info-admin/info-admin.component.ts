@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NguoiDung } from 'src/app/Models/NguoiDung';
-import { StatusService } from 'src/app/Services/status/status.service';
-import { NguoiDungService } from 'src/app/Services/nguoi-dung/nguoi-dung.service';
+import { NguoiDung } from 'src/app/_core/model/NguoiDung';
+import { StatusService } from 'src/app/services/status/status.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert';
+
+
 
 @Component({
   selector: 'app-info-admin',
@@ -13,7 +15,7 @@ import swal from 'sweetalert';
 export class InfoAdminComponent implements OnInit {
   admin_info: NguoiDung;
   old_pass: string;
-  constructor(private _statusService: StatusService, private _nguoiDungService: NguoiDungService, private _router: Router) {
+  constructor(private _statusService: StatusService, private _userService: UserService, private _router: Router) {
     this.admin_info = JSON.parse(localStorage.getItem('admin_login'));
     this.old_pass = this.admin_info.MatKhau;
   }
@@ -36,7 +38,7 @@ export class InfoAdminComponent implements OnInit {
   }
 
   CapNhatAdmin(admin: NguoiDung) {
-    this._nguoiDungService.CapNhatNguoiDung(admin).subscribe(
+    this._userService.CapNhatNguoiDung(admin).subscribe(
       (res) => {
         if (typeof res === 'object') {
           swal('Cập nhật thành công', {

@@ -17,7 +17,6 @@ import { FormNguoidungComponent } from './layout-admin/quanly-nguoidung/form-ngu
 import { QuanlyPhimComponent } from './layout-admin/quanly-phim/quanly-phim.component';
 import { PhimComponent } from './layout-admin/quanly-phim/phim/phim.component';
 import { ChitietPhimComponent } from './layout-admin/quanly-phim/chitiet-phim/chitiet-phim.component';
-import { PipesModule } from '../pipes/pipes.module';
 import { FormPhimComponent } from './layout-admin/quanly-phim/form-phim/form-phim.component';
 import { TrangChuAdminComponent } from './layout-admin/trang-chu-admin/trang-chu-admin.component';
 import { ThongKeComponent } from './layout-admin/trang-chu-admin/thong-ke/thong-ke.component';
@@ -29,6 +28,7 @@ import { LichChieuComponent } from './layout-admin/quanly-lichchieu/lich-chieu/l
 import { DsLichchieuComponent } from './layout-admin/quanly-lichchieu/ds-lichchieu/ds-lichchieu.component';
 import { InfoAdminComponent } from './layout-admin/info-admin/info-admin.component';
 import { FormAdminComponent } from './layout-admin/info-admin/form-admin/form-admin.component';
+import { PipesModule } from '../pipes/pipes/pipes.module';
 
 const adminRoutes: Routes = [
   {path: 'login', component: LoginComponent},

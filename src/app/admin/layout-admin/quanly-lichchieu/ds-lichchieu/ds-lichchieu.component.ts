@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Phim } from 'src/app/Models/Phim';
-import { PhimService } from 'src/app/Services/phim/phim.service';
+import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
+import { PhimService } from 'src/app/services/phim.service';
 
 @Component({
   selector: 'app-ds-lichchieu',
@@ -9,7 +9,7 @@ import { PhimService } from 'src/app/Services/phim/phim.service';
   styleUrls: ['./ds-lichchieu.component.scss']
 })
 export class DsLichchieuComponent implements OnInit {
-  ChiTietPhim: Phim = new Phim();
+  ChiTietPhim: PhimAdmin = new PhimAdmin();
   MaPhim = '';
   page = 1;
   itemsPerPage = 6;
@@ -19,10 +19,9 @@ export class DsLichchieuComponent implements OnInit {
     this._activeRouter.params.subscribe(
       (res: any) => {
         this.MaPhim = res.id;
-        this._phimService.LayChiTietPhim(this.MaPhim).subscribe(
+        this._phimService.getChiTietPhim(this.MaPhim).subscribe(
           (phim: any) => {
             this.ChiTietPhim = phim;
-            console.log(this.ChiTietPhim);
           }
         );
       },

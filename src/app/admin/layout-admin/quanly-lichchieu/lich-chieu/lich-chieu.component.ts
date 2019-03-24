@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LichChieu } from 'src/app/_core/model/LichChieu';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./lich-chieu.component.scss']
 })
 export class LichChieuComponent implements OnInit {
-  @Input() lich_chieu: any;
+  @Input() lich_chieu: LichChieu;
   @Input() index: number;
   constructor() { }
 

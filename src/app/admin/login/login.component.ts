@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { NguoiDungService } from 'src/app/Services/nguoi-dung/nguoi-dung.service';
+
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   FormLogin: FormGroup;
-  constructor(private _nguoidungService: NguoiDungService, private _router: Router) {
+  constructor(private _userService: UserService, private _router: Router) {
   }
 
   ngOnInit() {
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   }
 
   DangNhap() {
-    this._nguoidungService.DangNhap(this.FormLogin.value).subscribe(
+    const user = this.FormLogin.value;
+    this._userService.getNguoiDungDangNhap(user.taikhoan, user.matkhau).subscribe(
       (res: any) => {
         if (typeof res === 'object') {
           if (res.MaLoaiNguoiDung.toLowerCase() === 'quantri') {

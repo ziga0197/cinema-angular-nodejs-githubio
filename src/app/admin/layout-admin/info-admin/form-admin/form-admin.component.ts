@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NguoiDung } from 'src/app/Models/NguoiDung';
-import { StatusService } from 'src/app/Services/status/status.service';
+import { StatusService } from 'src/app/services/status/status.service';
+import { NguoiDung } from 'src/app/_core/model/NguoiDung';
 
 @Component({
   selector: 'app-form-admin',

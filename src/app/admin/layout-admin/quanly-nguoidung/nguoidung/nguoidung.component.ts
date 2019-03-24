@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { NguoiDung } from 'src/app/Models/NguoiDung';
-import { StatusService } from 'src/app/Services/status/status.service';
+import { NguoiDung } from 'src/app/_core/model/NguoiDung';
+import { StatusService } from 'src/app/services/status/status.service';
+
 
 @Component({
   // tslint:disable-next-line:component-selector

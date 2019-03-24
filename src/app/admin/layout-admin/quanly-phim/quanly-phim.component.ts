@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
-import { PhimService } from 'src/app/Services/phim/phim.service';
-import { StatusService } from 'src/app/Services/status/status.service';
-import { Phim } from 'src/app/Models/Phim';
+import { StatusService } from 'src/app/services/status/status.service';
+import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
 import { FormPhimComponent } from './form-phim/form-phim.component';
+import { PhimService } from 'src/app/services/phim.service';
+
 
 @Component({
   selector: 'app-quanly-phim',
@@ -11,8 +12,8 @@ import { FormPhimComponent } from './form-phim/form-phim.component';
 })
 export class QuanlyPhimComponent implements OnInit {
   @ViewChild('formPhim') formPhim: FormPhimComponent;
-  DS_Phim: Phim[] = [];
-  ThongTinPhim: Phim;
+  DS_Phim: PhimAdmin[] = [];
+  ThongTinPhim: PhimAdmin;
   statusEditMovie = false;
   page = 1;
   itemsPerPage = 6;
@@ -30,7 +31,7 @@ export class QuanlyPhimComponent implements OnInit {
     return this.itemsPerPage * (currentPage - 1) + indexOnPage;
   }
 
-  LayThongTinPhim(phim: Phim) {
+  LayThongTinPhim(phim: PhimAdmin) {
     this.ThongTinPhim = phim;
   }
 
@@ -46,7 +47,7 @@ export class QuanlyPhimComponent implements OnInit {
   }
 
   LayDanhSachPhim() {
-    this._phimService.LayDanhSachPhim().subscribe(
+    this._phimService.getPhim().subscribe(
       (res: any) => {
         this.DS_Phim = res;
         for (const phim of this.DS_Phim) {
@@ -67,8 +68,18 @@ export class QuanlyPhimComponent implements OnInit {
       (res: any) => {
         if (res === true) {
           this._phimService.ThemPhim(phim).subscribe(
-            (respon: any) => {
-              this.LayDanhSachPhim();
+            (them_res: any) => {
+              if (typeof them_res === 'object' ) {
+                swal('Thêm Thành Công', {
+                  icon: 'success',
+                });
+                this.LayDanhSachPhim();
+                this.formPhim.btnCloseModal.nativeElement.click();
+              } else {
+                swal(res, {
+                  icon: 'error',
+                });
+              }
             },
             (err: any) => {
               console.log(err);
@@ -79,7 +90,7 @@ export class QuanlyPhimComponent implements OnInit {
     );
   }
 
-  CapNhatPhim(phim: Phim) {
+  CapNhatPhim(phim: PhimAdmin) {
     this._phimService.CapNhatPhim(phim).subscribe(
       (res: any) => {
         if (typeof res === 'object') {

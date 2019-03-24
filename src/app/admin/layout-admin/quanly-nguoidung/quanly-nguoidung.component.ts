@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 // models
-import { NguoiDung } from 'src/app/Models/NguoiDung';
+import { NguoiDung } from 'src/app/_core/model/NguoiDung';
 // service
-import { StatusService } from 'src/app/Services/status/status.service';
-import { NguoiDungService } from 'src/app/Services/nguoi-dung/nguoi-dung.service';
+import { StatusService } from 'src/app/services/status/status.service';
 import { FormNguoidungComponent } from './form-nguoidung/form-nguoidung.component';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-quanly-nguoidung',
@@ -18,7 +18,7 @@ export class QuanlyNguoidungComponent implements OnInit {
   page = 1;
   itemsPerPage = 10;
   @ViewChild('formNguoiDung') formNguoiDung: FormNguoidungComponent;
-  constructor(private _nguoiDungService: NguoiDungService, private _status: StatusService) {
+  constructor(private _userService: UserService, private _status: StatusService) {
     this.currentAdminLogin = JSON.parse(localStorage.getItem('admin_login'));
   }
 
@@ -38,7 +38,7 @@ export class QuanlyNguoidungComponent implements OnInit {
   }
 
   LayDanhSachNguoiDung() {
-    this._nguoiDungService.LayDanhSachNguoiDung().subscribe(
+    this._userService.LayDanhSachNguoiDung().subscribe(
       (res: any) => {
         this.DSND = res;
         const index = this.DSND.findIndex((nguoidung) => {
@@ -64,7 +64,7 @@ export class QuanlyNguoidungComponent implements OnInit {
   }
 
   ThemNguoiDung(nguoidung: NguoiDung) {
-    this._nguoiDungService.ThemNguoiDung(nguoidung).subscribe(
+    this._userService.ThemNguoiDung(nguoidung).subscribe(
       (res: any) => {
         if (typeof res  === 'object') {
           swal({
@@ -86,7 +86,7 @@ export class QuanlyNguoidungComponent implements OnInit {
   }
 
   CapNhatNguoiDung(nguoidung: NguoiDung) {
-    this._nguoiDungService.CapNhatNguoiDung(nguoidung).subscribe(
+    this._userService.CapNhatNguoiDung(nguoidung).subscribe(
       (res: any) => {
         if (typeof res  === 'object') {
           swal({
@@ -115,7 +115,7 @@ export class QuanlyNguoidungComponent implements OnInit {
       buttons: ['Hủy', 'Xóa'],
     }).then((willDelete) => {
       if (willDelete) {
-        this._nguoiDungService.XoaNguoiDung(TaiKhoan).subscribe(
+        this._userService.XoaNguoiDung(TaiKhoan).subscribe(
           (res: any) => {
             swal(res, {
               icon: 'success',

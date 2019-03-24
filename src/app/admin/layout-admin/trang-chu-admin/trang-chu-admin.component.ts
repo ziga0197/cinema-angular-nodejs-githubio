@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { NguoiDungService } from 'src/app/Services/nguoi-dung/nguoi-dung.service';
-import { PhimService } from 'src/app/Services/phim/phim.service';
-import { Phim } from 'src/app/Models/Phim';
+import { UserService } from 'src/app/services/user.service';
+import { Phim } from 'src/app/_core/model/Phim';
+import { PhimService } from 'src/app/services/phim.service';
 @Component({
   selector: 'app-trang-chu-admin',
   templateUrl: './trang-chu-admin.component.html',
@@ -13,7 +12,7 @@ export class TrangChuAdminComponent implements OnInit {
   count_Phim: number;
   count_Ve: number;
   DS_phim: Phim[] = [];
-  constructor(private _nguoidungService: NguoiDungService, private _phimService: PhimService) {}
+  constructor(private _userService: UserService, private _phimService: PhimService) {}
 
   ngOnInit() {
     this.LayDanhSachNguoiDung();
@@ -21,7 +20,7 @@ export class TrangChuAdminComponent implements OnInit {
   }
 
   LayDanhSachNguoiDung() {
-    this._nguoidungService.LayDanhSachNguoiDung().subscribe(
+    this._userService.LayDanhSachNguoiDung().subscribe(
       (res: any) => {
           this.count_NguoiDung = res.length;
       },
@@ -30,7 +29,7 @@ export class TrangChuAdminComponent implements OnInit {
   }
 
   LayDanhSachPhim() {
-    this._phimService.LayDanhSachPhim().subscribe(
+    this._phimService.getPhim().subscribe(
       (res: any) => {
         this.count_Phim = res.length;
         this.DS_phim = res;
@@ -41,7 +40,4 @@ export class TrangChuAdminComponent implements OnInit {
 
   demo() {
   }
-
-
-
 }

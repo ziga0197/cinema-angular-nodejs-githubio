@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { StatusService } from 'src/app/Services/status/status.service';
-import { Phim } from 'src/app/Models/Phim';
+import { StatusService } from 'src/app/services/status/status.service';
+import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -9,7 +9,7 @@ import { Phim } from 'src/app/Models/Phim';
   styleUrls: ['./phim.component.scss']
 })
 export class PhimComponent implements OnInit {
-  @Input() phim: Phim;
+  @Input() phim: PhimAdmin;
   @Input() index: number;
   @Output() ThongTinPhim = new EventEmitter();
   @Output() EventXoaPhim = new EventEmitter();

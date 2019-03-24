@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PhimService } from 'src/app/Services/phim/phim.service';
-import { Phim } from 'src/app/Models/Phim';
+import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
+import { PhimService } from 'src/app/services/phim.service';
+
 
 @Component({
   selector: 'app-quanly-lichchieu',
@@ -8,7 +9,7 @@ import { Phim } from 'src/app/Models/Phim';
   styleUrls: ['./quanly-lichchieu.component.scss']
 })
 export class QuanlyLichchieuComponent implements OnInit {
-  DS_Phim: Phim[] = [];
+  DS_Phim: PhimAdmin[] = [];
   page = 1;
   itemsPerPage = 6;
   constructor(private _phimService: PhimService) { }
@@ -19,7 +20,7 @@ export class QuanlyLichchieuComponent implements OnInit {
   }
 
   LayDanhSachPhim() {
-    this._phimService.LayDanhSachPhim().subscribe(
+    this._phimService.getPhim().subscribe(
       (res: any) => {
         this.DS_Phim = res;
       },
