@@ -1,0 +1,29 @@
+<section class="sidebar" [ngClass]="{'active':sidebar_status}">
+    <div class="logo"></div>
+    <ul class="sidebar_nav">
+        <li class="sidebar_item" routerLinkActive="active">
+            <a class="item_link" routerLink="/admin/dashboard">
+                <span><i class="fa fa-tachometer" aria-hidden="true"></i></span>
+                Trang chủ
+            </a>
+        </li>
+        <li class="sidebar_item" routerLinkActive="active">
+            <a class="item_link"  routerLink="/admin/quanly-nguoidung">
+                <span><i class="fa fa-users" aria-hidden="true"></i></span>
+                Quản lý người dùng
+            </a>
+        </li>
+        <li class="sidebar_item" routerLinkActive="active">
+            <a class="item_link"  routerLink="/admin/quanly-phim">
+                <span><i class="fa fa-film" aria-hidden="true"></i></span>
+                Quản lý phim
+            </a>
+        </li>
+        <li class="sidebar_item" routerLinkActive="active">
+            <a class="item_link"routerLink="/admin//quanly-lichchieu">
+                <span><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                Quản lý lịch chiếu
+            </a>
+        </li>
+    </ul>
+</section>

@@ -1,0 +1,81 @@
+@import '../../../../assets/scss/admin/helper/variable';
+@import '../../../../assets/scss/admin/helper/mixin';
+
+.sidebar{
+    min-height:100vh;
+    height:100%;
+    background:$color-gray-4;
+    width: 0px;
+    overflow: hidden;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    
+    &.active
+    {
+        width: 260px;
+    }
+
+    .logo{
+        background: $color-orange-1;
+        height: 60px;
+        margin-bottom:25px;
+    }
+
+    .sidebar_nav{
+        list-style-type: none;
+        margin:10px 0 0 0;
+        padding:0;
+
+        .sidebar_item{
+            border-bottom:1px solid rgba($color: $color-gray-3, $alpha: 0.3);
+            .item_link{
+                display: inline-block;
+                width: 100%;
+                padding:21px 12px;
+                text-decoration: none;
+                @include text($fs-0 - 2,$fw-bold,$color-gray-1);
+                text-transform: capitalize;
+                // background: blue;
+                white-space:nowrap;
+
+                span{
+                    font-size: 16px;
+                    margin:0 8px;
+                }
+            }
+
+            &.active{
+                .item_link{
+                    color:$color-white;
+                    position: relative;
+    
+                    span{
+                        color:$color-orange-1;
+                    }
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        background:rgba($color: $color-gray-3, $alpha: 0.2);
+                        top:0;
+                        left:0;
+                        width: 100%;
+                        height:100%;
+                    }
+
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width:768px){
+    .sidebar{
+        position: absolute;
+        top:60px;
+        left:0;
+    }
+}
