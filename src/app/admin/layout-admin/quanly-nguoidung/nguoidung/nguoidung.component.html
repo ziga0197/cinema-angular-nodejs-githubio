@@ -1,0 +1,14 @@
+<td>{{index+1}}</td>
+<td>{{nguoidung.TaiKhoan}}</td>
+<td>{{nguoidung.HoTen}}</td>
+<td>{{nguoidung.Email}}</td>
+<td>{{nguoidung.TenLoaiNguoiDung}}</td>
+<td class="text-center">
+  <button class="btn btn-info" (click)="LayThongTinNguoiDung()" data-toggle="modal" data-target="#chiTiet">
+    <i class="fa fa-eye" aria-hidden="true"></i>
+  </button>
+  <button class="btn btn-warning mx-2" (click)="LayThongTinNguoiDung()" (click)="OpenModalEditUser()" data-toggle="modal" data-target="#fromNguoiDung">
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  </button>
+  <button class="btn btn-danger" (click)="XoaNguoiDung(nguoidung.TaiKhoan)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+</td>

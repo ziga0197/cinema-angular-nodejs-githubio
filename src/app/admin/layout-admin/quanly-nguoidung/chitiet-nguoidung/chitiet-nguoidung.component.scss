@@ -1,0 +1,7 @@
+@import '../../../../../assets/scss/admin/helper/variable';
+@import '../../../../../assets/scss/admin/helper/mixin';
+@import '../../../../../assets/scss/admin/helper/extend';
+
+#chiTiet{
+    @extend %modal;
+}
