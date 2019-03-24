@@ -1,0 +1,16 @@
+@import '../../../../../assets/scss/admin/helper/variable';
+@import '../../../../../assets/scss/admin/helper/mixin';
+
+td{
+    vertical-align: middle;
+    padding-left:10px;
+
+    &.movie_name{
+        text-transform: uppercase;
+        @include text($fs-0 + 2, $fw-normal, $color-black);
+    }
+
+    img{
+        width:100px;
+    }
+}
