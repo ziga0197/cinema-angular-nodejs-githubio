@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LichChieu } from 'src/app/_core/model/LichChieu';
+import swal from 'sweetalert';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -13,6 +14,12 @@ export class LichChieuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  CapNhat() {
+    swal('Chức năng đang cập nhật', {
+      icon: 'warning',
+    });
   }
 
 }
