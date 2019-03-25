@@ -1,0 +1,25 @@
+@import '../../../../../assets/scss/admin/helper/variable';
+@import '../../../../../assets/scss/admin/helper/mixin';
+@import '../../../../../assets/scss/admin/helper/extend';
+
+.top_phim{
+    margin:55px 20px;
+
+    .title{
+        color:$color-orange-1;
+        font-size: $fs-1;
+    }
+
+   td{
+       @include text($fs-0 + 3,$fw-normal,$color-gray-4);
+        &.one{
+            color:red;
+        }
+        &.two{
+            color:mediumvioletred;
+        }
+        &.three{
+            color:royalblue;
+        }
+   }
+}

@@ -29,6 +29,7 @@ import { DsLichchieuComponent } from './layout-admin/quanly-lichchieu/ds-lichchi
 import { InfoAdminComponent } from './layout-admin/info-admin/info-admin.component';
 import { FormAdminComponent } from './layout-admin/info-admin/form-admin/form-admin.component';
 import { PipesModule } from '../pipes/pipes/pipes.module';
+import { TopPhimComponent } from './layout-admin/trang-chu-admin/top-phim/top-phim.component';
 
 const adminRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -68,7 +69,8 @@ const adminRoutes: Routes = [
     LichChieuComponent,
     DsLichchieuComponent,
     InfoAdminComponent,
-    FormAdminComponent
+    FormAdminComponent,
+    TopPhimComponent
   ],
 
   imports: [

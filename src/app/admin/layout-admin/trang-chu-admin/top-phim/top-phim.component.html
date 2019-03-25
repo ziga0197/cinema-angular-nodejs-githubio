@@ -1,0 +1,19 @@
+<section class="top_phim">
+  <h1 class="title"><i class="fa fa-hashtag" aria-hidden="true"></i> Top Phim</h1>
+  <table class="table" *ngIf="TopPhim.length > 0">
+     <thead>
+        <tr>
+            <th>Hạng</th>
+            <th>Phim</th>
+            <th>Lượt Xem</th>
+          </tr>
+     </thead>
+     <tbody>
+        <tr *ngFor="let phim of TopPhim;let i = index">
+            <td [ngClass]="{'one':i==0,'two':i==1,'three':i==2}">{{i+1}}</td>
+            <td>{{phim.TenPhim}}</td>
+            <td>{{(TopPhim.length-i)*10733}}</td>
+          </tr>
+     </tbody>
+  </table>
+</section>
