@@ -20,8 +20,15 @@
 
     .logo{
         background: $color-orange-1;
-        height: 60px;
+        height:60px;
         margin-bottom:25px;
+        
+        h3{
+            @include text($fs-1,$fw-bold,$color-white);
+            text-align: center;
+            line-height: 60px;
+            text-transform: uppercase;
+        }
     }
 
     .sidebar_nav{
