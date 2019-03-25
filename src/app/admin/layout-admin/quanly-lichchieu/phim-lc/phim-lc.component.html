@@ -1,0 +1,10 @@
+<td>{{index+1}}</td>
+<td class="movie_name text-left">{{phim.TenPhim}}</td>
+<td>
+  <img [src]="phim.HinhAnh"/>
+</td>
+<td>{{phim.MaPhim}}</td>
+<td>{{phim.NgayKhoiChieu | date:'d/MM/y'}}</td>
+<td>
+  <button class="btn btn-warning" [routerLink]="['/admin/danhsach-lichchieu/',phim.MaPhim]">Lịch chiếu</button>
+</td>

@@ -1,0 +1,53 @@
+<section class="content_box">
+    <h2 class="title">
+      Chi tiết lịch chiếu
+    </h2>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <img [src]="ChiTietPhim.HinhAnh">
+        </div>
+        <div class="col-md-9 chitietphim">
+          <p>
+            Tên phim: <span class="tenphim">{{ChiTietPhim.TenPhim}}</span>
+          </p>
+          <p>
+            Đánh giá: <span class="danhgia">{{ChiTietPhim.DanhGia}} / 5</span>
+          </p>
+          <p>
+            Ngày khởi chiếu: <span>{{ChiTietPhim.NgayKhoiChieu | date:'d/MM/y'}}</span>
+          </p>
+          <p>
+              Mô tả: 
+              <span class="mota">{{ChiTietPhim.MoTa}}</span>
+          </p>
+        </div>
+      </div>
+  
+      <div class="data_table">
+          <table class="table table-bordered table-striped table-sm">
+              <thead>
+                  <tr class="text-center">
+                      <th>STT</th>
+                      <th >Mã lịch chiếu</th>
+                      <th >Tên rạp</th>
+                      <th >Ngày chiếu</th>
+                      <th>Thao tác</th>
+                    </tr>
+              </thead>
+              <tbody>
+                  <tr class="text-center"
+                  *ngFor="let lichchieu of ChiTietPhim.LichChieu | paginate: { itemsPerPage: itemsPerPage, currentPage: page}; let i = index"
+                  [lich_chieu]="lichchieu"
+                  [index]="GetAbsoluteIndex(i,page)"
+                  app-lich-chieu
+                    ></tr>
+              </tbody>
+            </table>
+            <pagination-controls class="pagination_cus"
+            (pageChange)="page = $event"
+            autoHide="true"
+            ></pagination-controls>
+      </div>
+    </div>
+  </section>

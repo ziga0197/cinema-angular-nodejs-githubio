@@ -1,0 +1,45 @@
+<section class="content_box">
+  <h2 class="title">
+    Danh sách người dùng
+    <button class="btn btn-success" (click)="OpenModalAddUser()" data-toggle="modal" data-target="#fromNguoiDung">
+      <i class="fa fa-user-plus" aria-hidden="true"></i>
+    </button>
+  </h2>
+  <div class="content">
+    <div class="search">
+        <span>Tìm kiếm :</span>
+        <input class="search_bar" (keyup)="TimKiemTaiKhoan($event)" placeholder="Nhập tài khoản..." />
+    </div>
+    <div class="data_table">
+        <table class="table table-bordered table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tài khoản</th>
+                    <th>Họ tên</th>
+                    <th>Email</th>
+                    <th>Loại người dùng</th>
+                    <th class="text-center">Thao tác</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr 
+                  *ngFor="let nguoidung of DSND | paginate: { itemsPerPage: itemsPerPage, currentPage: page}; let i = index" 
+                  [nguoidung]="nguoidung"
+                  [index] = "GetAbsoluteIndex(i,page)"
+                  (EventThongTinNguoiDung)="LayThongTinNguoiDung($event)"  
+                  (EventXoaNguoiDung)="XoaNguoiDung($event)"
+                  app-nguoidung></tr>
+            </tbody>
+          </table>
+          <pagination-controls class="pagination_cus"
+          (pageChange)="page = $event"
+          autoHide="true"
+          ></pagination-controls>
+    </div>
+  </div>
+</section>
+
+<app-chitiet-nguoidung [NguoiDung]="ThongTinNguoiDung"></app-chitiet-nguoidung>
+<app-form-nguoidung #formNguoiDung (EventThemNguoiDung)="ThemNguoiDung($event)" (EventCapNhatNguoiDung)="CapNhatNguoiDung($event)" [iNguoiDung]="ThongTinNguoiDung"></app-form-nguoidung>
+

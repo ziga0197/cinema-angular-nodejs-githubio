@@ -1,0 +1,93 @@
+<!-- Modal -->
+<div id="FormPhim" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{(editStatusMovie)?'Cập Nhật Phim':'Thêm Phim'}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form [formGroup]="Form_phim" (ngSubmit)="HandleSubmit()">
+        <div class="modal-body">
+          <!-- Tên phim -->
+          <div class="form-group">
+              <label for="">
+                Tên Phim
+                <span class="text-danger">*</span>
+              </label>
+              <input type="text" class="form-control" placeholder="Nhập tên phim" formControlName="TenPhim" />
+              <div class="error" *ngIf="f().TenPhim.errors && (f().TenPhim.touched || f().TenPhim.dirty)">
+                <span *ngIf="f().TenPhim.errors.required">Vui lòng nhập tên phim</span>
+                <span *ngIf="f().TenPhim.errors.minlength">Tên phim ít nhất {{f().TenPhim.errors.minlength.requiredLength}} kí tự</span>
+              </div>
+            </div>
+            <!-- Hình ảnh -->
+            <div class="form-group">
+              <label for="HinhAnh">
+                Hình ảnh
+                <span class="text-danger">*</span>
+              </label>
+              <input type="file" class="form-control-file" id="HinhAnh" #imageInput formControlName="HinhAnh" />
+              <div class="error" *ngIf="f().HinhAnh.errors && (f().HinhAnh.touched || f().HinhAnh.dirty)">
+                <span *ngIf="f().HinhAnh.errors.required">Vui lòng thêm hình</span>
+              </div>
+            </div>
+            <!-- Đánh giá -->
+            <div class="form-group" >
+              <label>Đánh giá</label>
+              <select class="form-control" id="DanhGia" formControlName="DanhGia">
+                <option value="0">Chọn mức độ đánh giá</option>
+                <option value="1">1 Sao</option>
+                <option value="2">2 Sao</option>
+                <option value="3">3 sao</option>
+                <option value="4">4 Sao</option>
+                <option value="5">5 Sao</option>
+              </select>
+            </div>
+            <!-- Khởi chiếu -->
+              <div class="form-group">
+                <label for="NgayKhoiChieu">
+                  Ngày khởi chiếu
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="date" #dateInput id="NgayKhoiChieu" class="form-control" formControlName="NgayKhoiChieu" />
+                <div class="error" *ngIf="f().NgayKhoiChieu.errors && (f().NgayKhoiChieu.touched || f().NgayKhoiChieu.dirty)">
+                  <span *ngIf="f().NgayKhoiChieu.errors.required">Vui lòng nhập ngày khởi chiếu</span>
+                  <span *ngIf="f().NgayKhoiChieu.errors.invalid_date">Ngày khởi chiếu quá hạn</span>
+                </div>
+              </div>
+              <!-- mô tả -->
+              <div class="form-group">
+                  <label for="MoTa">
+                    Mô tả
+                    <span class="text-danger">*</span>
+                  </label>
+                  <textarea id="MoTa" class="form-control" placeholder="Nhập mô tả phim" rows="5" formControlName="MoTa"></textarea>
+                  <div class="error" *ngIf="f().MoTa.errors && (f().MoTa.touched || f().MoTa.dirty)">
+                      <span *ngIf="f().MoTa.errors.required">Vui lòng nhập mô tả</span>
+                      <span *ngIf="f().MoTa.errors.minlength">Mô tả có ít nhất {{f().MoTa.errors.minlength.requiredLength}} kí tự</span>
+                  </div>
+                </div>
+              <!-- trailer -->
+              <div class="form-group">
+                <label for="Trailer">
+                  Trailer
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="text" id="Trailer" class="form-control" placeholder="Nhập link trailer youtube" formControlName="Trailer" />
+                <div class="error" *ngIf="f().Trailer.errors && (f().Trailer.touched || f().Trailer.dirty)">
+                    <span *ngIf="f().Trailer.errors.required">Vui lòng nhập đường dẫn trailer</span>
+                    <span *ngIf="f().Trailer.errors.pattern">Link youtube không hợp lệ</span>
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [disabled]="Form_phim.invalid">{{(editStatusMovie)?'Cập Nhật':'Lưu'}}</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" #btnCloseModal>Đóng</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

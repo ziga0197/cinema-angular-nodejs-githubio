@@ -1,0 +1,24 @@
+<section class="top_nav">
+  <div class="toggle_sidebar">
+    <i class="fa fa-bars" aria-hidden="true" (click)="Handle_Sidebar()"></i>
+  </div>
+  <div class="admin_info" (click)="Handle_OptionNav()">
+    <i class="fa fa-user"></i>
+    <span class="name_admin">{{admin.TaiKhoan}}</span>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+  </div>
+  <ul class="user_option" [ngClass]="{'active':toggle_OptionNav}">
+      <li class="option_item">
+        <a class="item_link" #item_link (click)="ThongTinAdmin()">
+          <span><i class="fa fa-address-book-o" aria-hidden="true"></i></span>
+          Thông tin của tôi
+        </a>
+      </li>
+      <li class="option_item">
+        <a class="item_link" (click)="DangXuat()">
+          <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+          Thoát
+        </a>
+      </li>
+  </ul>
+</section>

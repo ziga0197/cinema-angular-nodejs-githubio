@@ -1,0 +1,24 @@
+<section class="login_page">
+    <div class="login">
+        <h3 class="title">admin login</h3>
+        <div class="form">
+            <form [formGroup]="FormLogin" (ngSubmit)="DangNhap()">
+                <div class="field">
+                    <input class="input" type="text" placeholder="Tài khoản" formControlName="taikhoan" />
+                    <span>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="field">
+                    <input class="input" type="password" autocomplete="password" placeholder="Mật khẩu" formControlName="matkhau"/>
+                    <span>
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="btn_box">
+                    <button type="submit" class="button">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

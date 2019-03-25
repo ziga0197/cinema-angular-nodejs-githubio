@@ -1,0 +1,72 @@
+<div id="fromNguoiDung" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{(StatusEditUSer)?'Cập nhật người dùng':'Thêm người dùng'}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form [formGroup]="Form_nguoiDung" (ngSubmit)="HandleSubmit()">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="">Tài khoản</label>
+            <input type="text" [readonly]="StatusEditUSer" class="form-control" placeholder="Tài khoản" formControlName="TaiKhoan" >
+            <div class="error" *ngIf="f().TaiKhoan.errors && (f().TaiKhoan.touched || f().TaiKhoan.dirty)">
+                <span *ngIf="f().TaiKhoan.errors.required">Vui lòng nhập tài khoản</span>
+                <span *ngIf="f().TaiKhoan.errors.minlength">Tài khoản từ {{f().TaiKhoan.errors.minlength.requiredLength}} kí tự trở lên</span>
+                <span *ngIf="f().TaiKhoan.errors.pattern && !f().TaiKhoan.errors.minlength">Tài khoản không chứa dấu , kí tự đặc biết và khoảng trống</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Mật khẩu <span (mouseout)="HidePassWord()" (mouseover)="ShowPassword()" *ngIf="!StatusEditUSer"><i class="fa fa-eye" aria-hidden="true"></i></span></label>
+            <input type="password" #pass autocomplete="passowrd" class="form-control" placeholder="Mật khẩu" formControlName="MatKhau" >
+            <div class="error" *ngIf="f().MatKhau.errors && (f().MatKhau.touched || f().MatKhau.dirty)">
+              <span *ngIf="f().MatKhau.errors.required">Vui lòng nhập mật khẩu</span>
+              <span *ngIf="f().MatKhau.errors.minlength">Mật khẩu từ {{f().MatKhau.errors.minlength.requiredLength}} kí tự trở lên</span>
+              <span *ngIf="f().MatKhau.errors.pattern && !f().MatKhau.errors.minlength">Mật khẩu không chứa khoảng trống</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Họ tên</label>
+            <input type="text" class="form-control" placeholder="Họ tên" formControlName="HoTen" >
+            <div class="error" *ngIf="f().HoTen.errors && (f().HoTen.touched || f().HoTen.dirty)">
+              <span *ngIf="f().HoTen.errors.required">Vui lòng nhập họ tên</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" placeholder="Email" formControlName="Email">
+            <div class="error" *ngIf="f().Email.errors && (f().Email.touched || f().Email.dirty)">
+              <span *ngIf="f().Email.errors.required">Vui lòng nhập email</span>
+              <span *ngIf="f().Email.errors.email">Email không hợp lệ</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Số điện thoại</label>
+            <input type="number" class="form-control" placeholder="Số điện thoại" formControlName="SoDT">
+            <div class="error" *ngIf="f().SoDT.errors && (f().SoDT.touched || f().SoDT.dirty)">
+              <span *ngIf="f().SoDT.errors.pattern">Số điện thoại chứa 10 số</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="">Loại người dùng</label>
+            <select name="" id="" class="form-control" formControlName="MaLoaiNguoiDung">
+              <option value="null">Chọn loại người dùng</option>
+              <option value="KhachHang">Khách hàng</option>
+              <option value="QuanTri">Quản trị</option>
+            </select>
+            <div class="error" *ngIf="f().MaLoaiNguoiDung.errors && (f().MaLoaiNguoiDung.touched || f().MaLoaiNguoiDung.dirty)">
+              <span *ngIf="f().MaLoaiNguoiDung.errors.required">Số điện thoại chứa 10 số</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [disabled]="Form_nguoiDung.invalid" >{{(StatusEditUSer)?'Cập nhật':'Lưu'}}</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" #btnCloseModal>Đóng</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

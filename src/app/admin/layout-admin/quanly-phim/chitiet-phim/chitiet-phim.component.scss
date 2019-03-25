@@ -1,0 +1,27 @@
+@import '../../../../../assets/scss/admin/helper/variable';
+@import '../../../../../assets/scss/admin/helper/mixin';
+@import '../../../../../assets/scss/admin/helper/extend';
+
+#chiTietPhim{
+    @extend %modal;
+
+    img{
+        width:100%;
+    }
+
+    .thongtin_phim{
+        margin-top:10px;
+        .ma_phim{
+            font-weight:$fw-bold;
+        }
+        .ten_phim{
+            @include text($fs-0 + 2,$fw-600,$color-black);
+        }
+        .danh_gia{
+            color:$color-orange-0;
+            font-weight: $fw-bold;
+        }
+    }
+
+    
+}

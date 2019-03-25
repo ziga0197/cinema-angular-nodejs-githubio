@@ -1,0 +1,63 @@
+@import '../../../../../assets/scss/admin/helper/variable';
+@import '../../../../../assets/scss/admin/helper/mixin';
+@import '../../../../../assets/scss/admin/helper/extend';
+
+.thong_ke{
+    display: flex;
+    justify-content: space-between;
+
+    .item{
+        height:140px;
+        margin:0 13px;
+        width: 100%;
+        background:blue;
+        display: flex;
+        justify-items: center;
+        border-radius:2px;
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        -ms-border-radius:2px;
+        -o-border-radius:2px;
+        
+        &.users{
+            background:#FF675F;
+        }
+        &.movies{
+            background: #00BDBD;
+        }
+        &.tickets{
+            background: #F9BC2D;
+        }
+
+        .icon{
+            // background: green;
+            align-self: center;
+            font-size: 80px;
+            color:rgba($color: $color-white, $alpha: 0.9);
+            margin:0 20px 0 30px;
+        }
+        .number{
+            // background:red;
+            flex-grow: 1;
+            align-self: center;
+            text-align: right;
+            margin-right: 20px;
+            @include text($fs-2,$fw-bold,$color-white);
+
+            span{
+                display: block;
+                @include text($fs-0 - 2,$fw-normal,$color-white);
+            }
+        }
+    }
+
+}
+
+@media screen and(max-width:1168px){
+    .thong_ke{
+        flex-wrap: wrap;
+        .item{
+            margin:10px 13px;
+        }
+    }
+}

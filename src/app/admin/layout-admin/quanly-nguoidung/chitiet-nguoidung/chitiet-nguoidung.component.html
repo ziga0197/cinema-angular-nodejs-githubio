@@ -1,0 +1,39 @@
+<div id="chiTiet" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Thông tin người dùng</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <span>Tài Khoản : </span>
+          {{NguoiDung.TaiKhoan}}
+        </p>
+        <p>
+          <span>Họ tên : </span>
+          {{NguoiDung.HoTen}}
+        </p>
+        <p>
+          <span>Email : </span>
+          {{NguoiDung.Email}}
+        </p>
+        <p>
+          <span>Số điện thoại : </span>
+          {{NguoiDung.SoDT}}
+        </p>
+        <p>
+          <span>Loại người dùng : </span>
+          {{NguoiDung.TenLoaiNguoiDung}}
+        </p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-warning" (click)="OpenModalEditUSer()" data-dismiss="modal"  data-toggle="modal" data-target="#fromNguoiDung">Chỉnh sửa</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+
+  </div>
+</div>

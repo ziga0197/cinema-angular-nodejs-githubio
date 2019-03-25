@@ -1,0 +1,7 @@
+<section class="main_container">
+    <app-sidebar [sidebar_status]="sidebar_status"></app-sidebar>
+    <div class="main">
+        <app-top-nav (toggle_Sidebar)="Handle_Sidebar($event)"></app-top-nav>
+        <router-outlet></router-outlet>
+    </div>
+</section>

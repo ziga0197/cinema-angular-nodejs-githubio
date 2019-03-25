@@ -1,0 +1,32 @@
+@import '../../../../assets/scss/admin/helper/variable';
+@import '../../../../assets/scss/admin/helper/mixin';
+@import '../../../../assets/scss/admin/helper/extend';
+.content_box{
+    @extend %content_box;
+
+    .content{
+        @extend %content;
+        overflow:hidden;
+
+    }
+}
+
+
+@media screen and(max-width:768px){
+    .content_box{
+        padding:28px 5px;
+
+        .content{
+            padding:10px;
+        }
+    }
+}
+
+@media screen and(max-width:576px){
+    .content_box{
+        .content{
+            padding:5px 3px;
+
+        }
+    }
+}

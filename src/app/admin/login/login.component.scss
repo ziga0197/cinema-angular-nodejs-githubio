@@ -1,0 +1,80 @@
+@import '../../../assets/scss/admin/helper/variable';
+@import '../../../assets/scss/admin/helper/mixin';
+
+.login_page{
+    min-height: 100vh;
+    background: #e6e6e6;
+    padding:10% 0;
+
+    .login{
+        width: 400px;
+        background:white;
+        margin:auto;
+        padding:20px 0;
+       
+        
+
+        .title{
+            // background: blue;
+            padding: 0 10px;
+            text-transform: uppercase;
+            line-height: 58px;
+            border:solid $color-orange-1;
+            border-width:0 0 0 15px;
+            @include text($fs-1 + 7,$fw-bold,$color-gray-3);
+            margin-bottom:10px;
+        }
+
+        .form{
+            .field{
+                background:rgba($color:$color-gray-0, $alpha: 0.5);
+                border-bottom: 1px solid $color-gray-1;
+                height:50px;
+                margin:20px 20px 0 20px;
+                display: flex;
+
+                .input{
+                    flex-grow: 2;
+                    height:100%;
+                    padding:0 10px;
+                    background: none;
+                    border: none;
+                    @include text($fs-0 + 2,$fw-600,$color-gray-3);
+
+                    &:focus{
+                        outline: none;
+                    }
+                }
+
+                span{
+                    display: inline-block;
+                    // background:red;
+                    line-height:50px;
+                    text-align: center;
+                    width: 50px;
+                    @include text($fs-1,$fw-normal,$color-gray-1);      
+                }
+            }
+            .btn_box{
+                margin:20px 20px 0 20px;
+                .button{
+                    text-transform: uppercase;
+                    border:none;
+                    height:60px;
+                    width: 100%;
+                    background:$color-orange-1;
+                    @include text($fs-0 + 4,$fw-bold,$color-white);  
+                    transition: all 0.2s;
+                    -webkit-transition: all 0.2s;
+                    -moz-transition: all 0.2s;
+                    -ms-transition: all 0.2s;
+                    -o-transition: all 0.2s;
+                    
+                    &:hover{
+                        color:$color-gray-3;                
+                    }
+                }
+            }
+        }
+    }
+}
