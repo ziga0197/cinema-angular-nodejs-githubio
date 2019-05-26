@@ -28,7 +28,7 @@
                 Hình ảnh
                 <span class="text-danger">*</span>
               </label>
-              <input type="file" class="form-control-file" id="HinhAnh" #imageInput formControlName="HinhAnh" />
+              <input type="text" class="form-control" id="HinhAnh" #imageInput formControlName="HinhAnh" />
               <div class="error" *ngIf="f().HinhAnh.errors && (f().HinhAnh.touched || f().HinhAnh.dirty)">
                 <span *ngIf="f().HinhAnh.errors.required">Vui lòng thêm hình</span>
               </div>

@@ -22,7 +22,7 @@ export class ChitietphimComponent implements OnInit {
     this._chitiet.getChiTietPhim(this.maPhim).subscribe(
       (res: Phim) => {
         this.PhimChiTiet = res;
-        console.log(res);
+        console.log(this.PhimChiTiet);
       }
     )
   }

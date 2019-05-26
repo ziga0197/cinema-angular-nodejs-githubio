@@ -5,7 +5,7 @@
       <mat-card-title>{{ ipPhim.TenPhim }}</mat-card-title>
       <mat-card-subtitle>{{ ipPhim.NgayKhoiChieu | date }}</mat-card-subtitle>
       <mat-card-actions>
-        <button mat-raised-button color="warn" (click)="getChiTiet(ipPhim.MaPhim)">Chi Tiết</button>
+        <button mat-raised-button color="warn" (click)="getChiTiet(ipPhim._id)">Chi Tiết</button>
         <!-- <button mat-button>SHARE</button> -->
       </mat-card-actions>
     </mat-card>

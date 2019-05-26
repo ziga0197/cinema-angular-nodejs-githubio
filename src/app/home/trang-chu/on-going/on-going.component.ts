@@ -47,6 +47,7 @@ export class OnGoingComponent implements OnInit {
     // get Phim
     this._http.getPhim().subscribe(
       (res: Phim[]) => {
+        console.log(res)
         this.onGoingPhims = res;
         console.log(this.onGoingPhims);
       },

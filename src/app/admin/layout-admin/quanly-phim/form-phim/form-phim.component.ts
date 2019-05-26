@@ -25,7 +25,7 @@ export class FormPhimComponent implements OnInit, OnChanges {
     // khởi tạo form
     this.Form_phim = new FormGroup({
       'TenPhim': new FormControl(null, [Validators.required, Validators.minLength(2)]),
-      'HinhAnh': new FormControl(null, this.ValidatoForImage.bind(this)),
+      'HinhAnh': new FormControl(null, [Validators.required, Validators.minLength(10)]),
       'MoTa': new FormControl(null, [Validators.required, Validators.minLength(20)]),
       'NgayKhoiChieu': new FormControl(null, [Validators.required, this.ValidatorForOpenDay.bind(this)]),
       'DanhGia': new FormControl(0),
@@ -144,28 +144,28 @@ export class FormPhimComponent implements OnInit, OnChanges {
   }
 
   ThemPhim() {
-    const formValue = this.Form_phim.value;
-    const imageFile = this.HandleFileUpload();
+    // const formValue = this.Form_phim.value;
+    // const imageFile = this.HandleFileUpload();
 
-    const arr_typeFile = imageFile.type.split('/');
-    formValue.HinhAnh = `http://svcy2.myclass.vn/hinhanh/phim/${formValue.TenPhim}.${arr_typeFile[1]}`;
-    this.EventThemPhim.emit({phim: this.Form_phim.value, file: imageFile});
+    // const arr_typeFile = imageFile.type.split('/');
+    // formValue.HinhAnh = `http://svcy2.myclass.vn/hinhanh/phim/${formValue.TenPhim}.${arr_typeFile[1]}`;
+    this.EventThemPhim.emit({phim: this.Form_phim.value});
   }
 
   CapNhatPhim() {
     const formValue = this.Form_phim.value;
     const phimCapNhat = {...this.iPhim, ...formValue};
-    let imageFile: any = '';
+    // let imageFile: any = '';
 
-    if (formValue.HinhAnh === '') {
-      phimCapNhat.HinhAnh = this.iPhim.HinhAnh;
-    } else {
-      imageFile = this.HandleFileUpload();
-      const arr_typeFile = imageFile.type.split('/');
-      formValue.HinhAnh = `http://svcy2.myclass.vn/hinhanh/phim/${formValue.TenPhim}.${arr_typeFile[1]}`;
-      phimCapNhat.HinhAnh = formValue.HinhAnh;
-    }
-    this.EventCapNhatPhim.emit({phim: phimCapNhat, file: imageFile});
+    // if (formValue.HinhAnh === '') {
+    //   phimCapNhat.HinhAnh = this.iPhim.HinhAnh;
+    // } else {
+    //   imageFile = this.HandleFileUpload();
+    //   const arr_typeFile = imageFile.type.split('/');
+    //   formValue.HinhAnh = `http://svcy2.myclass.vn/hinhanh/phim/${formValue.TenPhim}.${arr_typeFile[1]}`;
+    // }
+    phimCapNhat.HinhAnh = formValue.HinhAnh;
+    this.EventCapNhatPhim.emit({phim: phimCapNhat});
   }
 
 }

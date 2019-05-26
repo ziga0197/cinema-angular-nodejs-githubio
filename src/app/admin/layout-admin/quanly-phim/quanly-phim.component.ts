@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { StatusService } from 'src/app/services/status/status.service';
 import { PhimAdmin } from 'src/app/_core/model/PhimAdmin';
 import { FormPhimComponent } from './form-phim/form-phim.component';
 import { PhimService } from 'src/app/services/phim.service';
+import { cleanSession } from 'selenium-webdriver/safari';
 
 
 @Component({
@@ -50,6 +51,7 @@ export class QuanlyPhimComponent implements OnInit {
     this._phimService.getPhim().subscribe(
       (res: any) => {
         this.DS_Phim = res;
+        console.log(res);
         for (const phim of this.DS_Phim) {
           const embedLink = phim.Trailer.replace('watch?v=', 'embed/');
           phim.Trailer = embedLink;
@@ -63,34 +65,28 @@ export class QuanlyPhimComponent implements OnInit {
 
   ThemPhim(data: any) {
     const phim = data.phim;
-    const imageFile  = data.file;
-    this.HandleUploadImage(phim.TenPhim, imageFile).subscribe(
-      (res: any) => {
-        if (res === true) {
-          this._phimService.ThemPhim(phim).subscribe(
-            (them_res: any) => {
-              if (typeof them_res === 'object' ) {
-                swal('Thêm Thành Công', {
-                  icon: 'success',
-                });
-                this.LayDanhSachPhim();
-                this.formPhim.btnCloseModal.nativeElement.click();
-              } else {
-                swal(res, {
-                  icon: 'error',
-                });
-              }
-            },
-            (err: any) => {
-              console.log(err);
-            }
-          );
+    this._phimService.ThemPhim(phim).subscribe(
+      (them_res: any) => {
+        if (typeof them_res === 'object') {
+          swal('Thêm Thành Công', {
+            icon: 'success',
+          });
+          this.LayDanhSachPhim();
+          this.formPhim.btnCloseModal.nativeElement.click();
+        } else {
+          swal(them_res, {
+            icon: 'error',
+          });
         }
+      },
+      (err: any) => {
+        console.log(err);
       }
     );
   }
 
-  CapNhatPhim(phim: PhimAdmin) {
+  CapNhatPhim(phim: any) {
+    console.log(phim);
     this._phimService.CapNhatPhim(phim).subscribe(
       (res: any) => {
         if (typeof res === 'object') {
@@ -98,6 +94,7 @@ export class QuanlyPhimComponent implements OnInit {
             icon: 'success',
           });
           this.LayDanhSachPhim();
+          this.formPhim.btnCloseModal.nativeElement.click();
         } else {
           swal(res, {
             icon: 'error',
@@ -111,7 +108,7 @@ export class QuanlyPhimComponent implements OnInit {
   }
 
   XoaPhim(phim: any) {
-    console.log(phim.MaPhim);
+    console.log(phim._id);
     swal({
       title: 'Bạn có chắc ?',
       text: `Xoá phim  ${phim.TenPhim}`,
@@ -120,9 +117,9 @@ export class QuanlyPhimComponent implements OnInit {
       buttons: ['Hủy', 'Xóa'],
     }).then((willDelete) => {
       if (willDelete) {
-        this._phimService.XoaPhim(phim.MaPhim).subscribe(
+        this._phimService.XoaPhim(phim._id).subscribe(
           (res: any) => {
-            swal(res, {
+            swal('Xóa Thành Công', {
               icon: 'success',
             });
             this.LayDanhSachPhim();
@@ -136,26 +133,27 @@ export class QuanlyPhimComponent implements OnInit {
 
   HandleCapNhatPhim(data: any) {
     const phim = data.phim;
-    const imageFile  = data.file;
-    if (imageFile !== '') {
-      this.HandleUploadImage(phim.TenPhim, imageFile).subscribe(
-        (res: any) => {
-          this.CapNhatPhim(phim);
-        },
-        (err: any) => {
-          console.log(err);
-        }
-      );
-    } else {
-      this.CapNhatPhim(phim);
-    }
+    this.CapNhatPhim(phim);
+    // const imageFile  = data.file;
+    // if (imageFile !== '') {
+    //   this.HandleUploadImage(phim.TenPhim, imageFile).subscribe(
+    //     (res: any) => {
+    //       this.CapNhatPhim(phim);
+    //     },
+    //     (err: any) => {
+    //       console.log(err);
+    //     }
+    //   );
+    // } else {
+    //   this.CapNhatPhim(phim);
+    // }
   }
 
   HandleUploadImage(tenPhim: any, file: File) {
     const formData = new FormData();
     formData.append('Files', file);
     formData.append('TenPhim', tenPhim);
-    return  this._phimService.UploadFileImg(formData);
+    return this._phimService.UploadFileImg(formData);
   }
 
 }

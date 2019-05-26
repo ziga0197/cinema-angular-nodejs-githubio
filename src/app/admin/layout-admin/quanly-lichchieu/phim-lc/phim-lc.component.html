@@ -3,8 +3,8 @@
 <td>
   <img [src]="phim.HinhAnh"/>
 </td>
-<td>{{phim.MaPhim}}</td>
+<td>{{phim._id}}</td>
 <td>{{phim.NgayKhoiChieu | date:'d/MM/y'}}</td>
 <td>
-  <button class="btn btn-warning" [routerLink]="['/admin/danhsach-lichchieu/',phim.MaPhim]">Lịch chiếu</button>
+  <button class="btn btn-warning" [routerLink]="['/admin/danhsach-lichchieu/',phim._id]">Lịch chiếu</button>
 </td>

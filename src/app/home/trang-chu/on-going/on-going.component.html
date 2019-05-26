@@ -1,4 +1,4 @@
-<div class="listPhim" [@phimAnimate]="onGoingPhims.length">
+<div class="listPhim" *ngIf="onGoingPhims" [@phimAnimate]="onGoingPhims.length">
   <ng-container *ngFor="let phim of onGoingPhims; let stt=index">
     <div class="phim">
       <app-phim [ipPhim]="phim" ></app-phim>
