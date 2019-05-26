@@ -9,7 +9,7 @@ import { StatusService } from 'src/app/services/status/status.service';
   styleUrls: ['./chitiet-nguoidung.component.scss']
 })
 export class ChitietNguoidungComponent implements OnInit {
-  @Input() NguoiDung: NguoiDung;
+  @Input() NguoiDung: any;
   constructor(private _status: StatusService) {
   }
 
@@ -23,6 +23,7 @@ export class ChitietNguoidungComponent implements OnInit {
       MaLoaiNguoiDung: '',
       MaNhom: '',
       TenLoaiNguoiDung: '',
+      _id:''
     };
   }
 

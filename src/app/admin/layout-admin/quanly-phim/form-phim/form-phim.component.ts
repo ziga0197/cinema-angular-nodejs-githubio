@@ -41,7 +41,7 @@ export class FormPhimComponent implements OnInit, OnChanges {
       const NewOpenDate = this._datePipe.transform(OpenDate, 'yyyy-MM-dd');
       this.Form_phim.setValue({
         'TenPhim': this.iPhim.TenPhim,
-        'HinhAnh': '',
+        'HinhAnh': this.iPhim.HinhAnh,
         'MoTa': this.iPhim.MoTa,
         'NgayKhoiChieu': NewOpenDate,
         'DanhGia': this.iPhim.DanhGia,
@@ -72,7 +72,7 @@ export class FormPhimComponent implements OnInit, OnChanges {
           const OpenDate = new Date(this.iPhim.NgayKhoiChieu);
           const NewOpenDate = this._datePipe.transform(OpenDate, 'yyyy-MM-dd');
           this.Form_phim.setValue({
-            'TenPhim': this.iPhim.TenPhim,
+            'TenPhim': this.iPhim.TenPhim ,
             'HinhAnh': '',
             'MoTa': this.iPhim.MoTa,
             'NgayKhoiChieu': NewOpenDate,
@@ -144,26 +144,13 @@ export class FormPhimComponent implements OnInit, OnChanges {
   }
 
   ThemPhim() {
-    // const formValue = this.Form_phim.value;
-    // const imageFile = this.HandleFileUpload();
-
-    // const arr_typeFile = imageFile.type.split('/');
-    // formValue.HinhAnh = `http://svcy2.myclass.vn/hinhanh/phim/${formValue.TenPhim}.${arr_typeFile[1]}`;
+    
     this.EventThemPhim.emit({phim: this.Form_phim.value});
   }
 
   CapNhatPhim() {
     const formValue = this.Form_phim.value;
     const phimCapNhat = {...this.iPhim, ...formValue};
-    // let imageFile: any = '';
-
-    // if (formValue.HinhAnh === '') {
-    //   phimCapNhat.HinhAnh = this.iPhim.HinhAnh;
-    // } else {
-    //   imageFile = this.HandleFileUpload();
-    //   const arr_typeFile = imageFile.type.split('/');
-    //   formValue.HinhAnh = `http://svcy2.myclass.vn/hinhanh/phim/${formValue.TenPhim}.${arr_typeFile[1]}`;
-    // }
     phimCapNhat.HinhAnh = formValue.HinhAnh;
     this.EventCapNhatPhim.emit({phim: phimCapNhat});
   }

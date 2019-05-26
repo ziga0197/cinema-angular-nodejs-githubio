@@ -41,6 +41,7 @@ export class QuanlyNguoidungComponent implements OnInit {
     this._userService.LayDanhSachNguoiDung().subscribe(
       (res: any) => {
         this.DSND = res;
+        console.log(res);
         const index = this.DSND.findIndex((nguoidung) => {
           return nguoidung.TaiKhoan === this.currentAdminLogin.TaiKhoan;
         });
@@ -86,6 +87,7 @@ export class QuanlyNguoidungComponent implements OnInit {
   }
 
   CapNhatNguoiDung(nguoidung: NguoiDung) {
+    console.log(nguoidung);
     this._userService.CapNhatNguoiDung(nguoidung).subscribe(
       (res: any) => {
         if (typeof res  === 'object') {
@@ -94,6 +96,7 @@ export class QuanlyNguoidungComponent implements OnInit {
             icon: 'success',
           });
           this.LayDanhSachNguoiDung();
+          this.formNguoiDung.btnCloseModal.nativeElement.click();
         } else if (typeof res === 'string') {
           swal({
             title: res,
@@ -117,7 +120,7 @@ export class QuanlyNguoidungComponent implements OnInit {
       if (willDelete) {
         this._userService.XoaNguoiDung(TaiKhoan).subscribe(
           (res: any) => {
-            swal(res, {
+            swal("Xóa thành công", {
               icon: 'success',
             });
             this.LayDanhSachNguoiDung();

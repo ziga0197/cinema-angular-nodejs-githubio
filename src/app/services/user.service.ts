@@ -9,10 +9,15 @@ export class UserService {
   MaNhom: string;
   constructor(private _userHttp: HttpClient) {
     this.MaNhom = 'GP02';
-   }
+  }
 
   getNguoiDungDangNhap(taikhoan: string, matkhau: string) {
-    return this._userHttp.post(`http://svcy2.myclass.vn/api/QuanLyNguoiDung/DangNhap?taikhoan=${taikhoan}&matkhau=${matkhau}`,
+    console.log(taikhoan + matkhau);
+    const user = {
+      TaiKhoan: taikhoan,
+      MatKhau: matkhau
+    }
+    return this._userHttp.post(`http://localhost:3000/user/login`, user,
       {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8'
@@ -21,11 +26,11 @@ export class UserService {
   }
 
   LayDanhSachNguoiDung() {
-    return this._userHttp.get(`http://svcy2.myclass.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${this.MaNhom}`);
+    return this._userHttp.get(`http://localhost:3000/user/list-user`);
   }
 
   // DangNhap(user: any) {
-    // tslint:disable-next-line:max-line-length
+  // tslint:disable-next-line:max-line-length
   //   return this._userHttp.post(`http://svcy2.myclass.vn/api/QuanLyNguoiDung/DangNhap?taikhoan=${user.taikhoan}&matkhau=${user.matkhau}`, undefined, {
   //     headers: {
   //       'Content-Type': 'application/json;charset=UTF-8'
@@ -40,9 +45,9 @@ export class UserService {
     } else if (nguoidung.MaLoaiNguoiDung === 'QuanTri') {
       nguoidung.TenLoaiNguoiDung = 'Quản trị';
     }
-    return this._userHttp.post('http://svcy2.myclass.vn/api/QuanLyNguoiDung/ThemNguoiDung', nguoidung, {
+    return this._userHttp.post('http://localhost:3000/user/create-user', nguoidung, {
       headers: {
-          'Content-Type': 'application/json;charset=UTF-8'
+        'Content-Type': 'application/json;charset=UTF-8'
       }
     });
   }
@@ -54,7 +59,7 @@ export class UserService {
     } else if (nguoidung.MaLoaiNguoiDung === 'QuanTri') {
       nguoidung.TenLoaiNguoiDung = 'Quản trị';
     }
-    return this._userHttp.post('http://svcy2.myclass.vn/api/QuanLyNguoiDung/CapNhatThongTin', nguoidung, {
+    return this._userHttp.put('http://localhost:3000/user/update-user', nguoidung, {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       }
@@ -62,6 +67,6 @@ export class UserService {
   }
 
   XoaNguoiDung(taikhoan: string) {
-    return this._userHttp.delete(`http://svcy2.myclass.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taikhoan}`);
+    return this._userHttp.delete(`http://localhost:3000/user/delete-user/${taikhoan}`);
   }
 }

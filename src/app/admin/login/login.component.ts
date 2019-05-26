@@ -25,26 +25,37 @@ export class LoginComponent implements OnInit {
     const user = this.FormLogin.value;
     this._userService.getNguoiDungDangNhap(user.taikhoan, user.matkhau).subscribe(
       (res: any) => {
+        console.log(res);
         if (typeof res === 'object') {
-          if (res.MaLoaiNguoiDung.toLowerCase() === 'quantri') {
-              swal('Cập Nhật Thành Công', {
-                icon: 'success',
-              }).then((value) => {
-                localStorage.setItem('admin_login', JSON.stringify(res));
-                this._router.navigate(['/admin']);
-              });
+          if (res === null) {
+            swal("Đăng nhập thất bại", {
+              icon: 'error',
+            });
+          }
+          else if (res.MaLoaiNguoiDung.toLowerCase() === 'quantri') {
+            swal('Đăng Nhập Thành Công', {
+              icon: 'success',
+            }).then((value) => {
+              localStorage.setItem('admin_login', JSON.stringify(res));
+              this._router.navigate(['/admin']);
+            });
           } else {
             swal('Người dùng không phải quản trị viên', {
               icon: 'warning',
             });
           }
         } else {
-          swal(res, {
+          swal("Đăng nhập thất bại", {
             icon: 'error',
           });
         }
       },
-      err => console.log(err)
+      err => {
+        console.log(err);
+        swal('Đăng nhập thất bại', {
+          icon: 'warning',
+        });
+      }
     );
   }
 
