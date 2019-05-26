@@ -10,9 +10,14 @@ export class DatVeComponent implements OnInit {
 
   @Input() inputGhe: Ghe;
   @Output() outputGhe = new EventEmitter();
-  constructor() { }
+
+  GheDaDat: Ghe;
+  constructor() {
+
+  }
 
   ngOnInit() {
+    this.GheDaDat = { ...this.inputGhe };
   }
 
   // đổi màu ghế đặt

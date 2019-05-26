@@ -1,4 +1,10 @@
-<button class="btn slide" color="warn" [ngClass]="{'active': inputGhe.DaDat}" 
-(click)="datGhe(inputGhe.DaDat)">
+<button 
+  class="btn slide" 
+  color="warn" 
+  (click)="datGhe(inputGhe.DaDat)" 
+  [disabled]="GheDaDat.DaDat"
+  [ngClass]="{'active': inputGhe.DaDat}" 
+
+  >
   {{ inputGhe.TenGhe }}
 </button>
