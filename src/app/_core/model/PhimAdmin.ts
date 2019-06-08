@@ -7,4 +7,5 @@ export class PhimAdmin {
     NgayKhoiChieu: string;
     TenPhim: string;
     Trailer: string;
+    LichChieu: any[];
 }

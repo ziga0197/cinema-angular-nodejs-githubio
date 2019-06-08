@@ -2,7 +2,7 @@
   <div class="screen">
     <h1>SCREEN</h1>
   </div>
-  <div class="seats" *ngIf="DSGhe.DanhSachGhe">
+  <div class="seats" *ngIf="DSGhe">
     <!-- repeat -->
     <ng-container *ngFor="let ghe of DSGhe.DanhSachGhe">
       <app-dat-ve [inputGhe]="ghe" (outputGhe)=datGhe($event)></app-dat-ve>

@@ -51,7 +51,7 @@ export class FormPhimComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // Khởi tạo giá trị ban đầu cho iphim
+    // Khởi tạo giá trị ban đầu cho iphim 
     this.iPhim = {
       'MaPhim' : -1,
       'TenPhim': '',
@@ -61,6 +61,7 @@ export class FormPhimComponent implements OnInit, OnChanges {
       'DanhGia': 0,
       'Trailer': '',
       'MaNhom' : '',
+      'LichChieu': []
     };
 
     // Lấy trạng thái edit phim

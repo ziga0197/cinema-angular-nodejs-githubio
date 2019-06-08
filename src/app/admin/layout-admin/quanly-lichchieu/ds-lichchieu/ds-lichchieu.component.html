@@ -22,9 +22,10 @@
           <span class="mota">{{ChiTietPhim.MoTa}}</span>
         </p>
         <p>
-          <button class="btn btn-success" (click)="OpenModalAddRoom()" data-toggle="modal" data-target="#fromNguoiDung">
-              <i class="fa fa-film" aria-hidden="true"></i>
-              <i class="fa fa-plus ml-1" aria-hidden="true"></i>
+          <button class="btn btn-success" data-toggle="modal"
+            data-target="#modalLichChieu">
+            <i class="fa fa-film" aria-hidden="true"></i>
+            <i class="fa fa-plus ml-1" aria-hidden="true"></i>
           </button>
         </p>
       </div>
@@ -35,7 +36,6 @@
         <thead>
           <tr class="text-center">
             <th>STT</th>
-            <th>Mã lịch chiếu</th>
             <th>Tên rạp</th>
             <th>Ngày chiếu</th>
             <th>Thao tác</th>
@@ -44,10 +44,53 @@
         <tbody>
           <tr class="text-center"
             *ngFor="let lichchieu of ChiTietPhim.LichChieu | paginate: { itemsPerPage: itemsPerPage, currentPage: page}; let i = index"
-            [lich_chieu]="lichchieu" [index]="GetAbsoluteIndex(i,page)" app-lich-chieu></tr>
+            [lich_chieu]="lichchieu" [parentId]="ChiTietPhim._id" [index]="GetAbsoluteIndex(i,page)" app-lich-chieu></tr>
         </tbody>
       </table>
       <pagination-controls class="pagination_cus" (pageChange)="page = $event" autoHide="true"></pagination-controls>
     </div>
   </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="modalLichChieu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thêm lich chiếu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="Form_lichChieu" (ngSubmit)="HandleSubmit()">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="">Tên rạp</label>
+              <select name="" id="" class="form-control" formControlName="rap">
+                <option value="null">Chọn Rạp</option>
+                <option value="Rạp 1">Rạp 1</option>
+                <option value="Rạp 2">Rạp 2</option>
+                <option value="Rạp 3">Rạp 3</option>
+                <option value="Rạp 4">Rạp 4</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="lichChieu">
+                  Lịch chiếu
+                  <span class="text-danger">*</span>
+                </label>
+                <input type="datetime-local" #dateInput id="lichChieu" class="form-control" formControlName="lichChieu" />
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success"
+              [disabled]="Form_lichChieu.invalid">{{(StatusEditUSer)?'Cập nhật':'Lưu'}}</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" #btnCloseModal>Đóng</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

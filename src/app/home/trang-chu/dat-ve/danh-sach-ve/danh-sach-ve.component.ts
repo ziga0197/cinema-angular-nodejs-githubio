@@ -13,12 +13,12 @@ import { Ve } from 'src/app/_core/model/ve';
 export class DanhSachVeComponent implements OnInit {
 
   constructor(private _http: PhimService, private _active: ActivatedRoute) { }
-  MaLichChieu: number;
-  DSGhe: ListGhe;
+  MaLichChieu: string;
+  DSGhe: any;
   MangGheDat: Ghe[] = [];
   TongTien: number;
   VeDat: Ve = {
-    MaLichChieu: 0,
+    MaLichChieu: '0',
     TaiKhoanNguoiDung: 'ads',
     DanhSachVe: [
       { MaGhe: 20, GiaVe: 75000 }
@@ -35,15 +35,19 @@ export class DanhSachVeComponent implements OnInit {
   getMaLichChieu() {
     this._active.paramMap.subscribe(
       (param) => {
-        this.MaLichChieu = +param.get('malichchieu');
+        this.MaLichChieu = param.get('malichchieu');
+        console.log(this.MaLichChieu);
       }
     )
   }
   // Lấy chi tiết phòng vé
   getPhongVe() {
     this._http.getChiTietPhongVe(this.MaLichChieu).subscribe(
-      (res: ListGhe) => {
-        this.DSGhe = res;
+      (res: any) => {
+        if (res) {
+          this.DSGhe = res;
+        }
+        // this.DSGhe = res;
         // console.log(this.DSGhe);
       },
       (err) => {

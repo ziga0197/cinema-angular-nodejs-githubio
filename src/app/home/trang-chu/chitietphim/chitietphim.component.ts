@@ -24,7 +24,6 @@ export class ChitietphimComponent implements OnInit {
     this._chitiet.getChiTietPhim(this.maPhim).subscribe(
       (res: Phim) => {
         this.PhimChiTiet = res;
-        console.log(this.PhimChiTiet);
       }
     )
   }
@@ -40,6 +39,8 @@ export class ChitietphimComponent implements OnInit {
   }
   // Lấy chi tiết phòng vé
   getPhongVe(stt) {
+    console.log(stt);
+    console.log(this.PhimChiTiet.LichChieu[stt].MaLichChieu);
     this._route.navigate(['/phong-ve', this.PhimChiTiet.LichChieu[stt].MaLichChieu]);
   }
 

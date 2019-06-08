@@ -1,5 +1,5 @@
 export class Ve {
-    MaLichChieu: number;
+    MaLichChieu: string;
     TaiKhoanNguoiDung: string;
     DanhSachVe: [
         {

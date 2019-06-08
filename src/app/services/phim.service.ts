@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ve } from '../_core/model/ve';
 import { PhimAdmin } from '../_core/model/PhimAdmin';
-
+import { Room } from '../_core/model/genarateRoom.js';
 @Injectable({
   providedIn: 'root'
 })
@@ -43,7 +43,7 @@ export class PhimService implements OnInit {
   }
   // Lấy chi tiết phòng vé
   getChiTietPhongVe(MaLichChieu) {
-    return this._http.get(`http://svcy2.myclass.vn/api/QuanLyPhim/ChiTietPhongVe?MaLichChieu=${MaLichChieu}`, {
+    return this._http.get(`http://localhost:3000/room/${MaLichChieu}`, {
       headers: {
         'Content-type': 'application/json;charset=UTF-8'
       }
@@ -65,7 +65,7 @@ export class PhimService implements OnInit {
 
   ThemPhim(phim: PhimAdmin) {
     phim.MaNhom = this.MaNhom;
-    return this._http.post('http://localhost:3000/create-list', phim , {
+    return this._http.post('http://localhost:3000/create-list', phim, {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       }
@@ -77,10 +77,22 @@ export class PhimService implements OnInit {
   }
 
   CapNhatPhim(phim: PhimAdmin) {
-    return this._http.put('http://localhost:3000/update-phim', phim , {
+    return this._http.put('http://localhost:3000/update-phim', phim, {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       }
     });
+  }
+
+  ThemLichChieu(room: any) {
+    return this._http.post(`http://localhost:3000/room/create-room`, room, {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+  }
+
+  XoaLichChieu(parentId, childId) {
+    return this._http.delete(`http://localhost:3000/room/delete-room/${parentId}/${childId}`);
   }
 }
