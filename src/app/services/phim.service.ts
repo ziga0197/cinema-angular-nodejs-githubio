@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Ve } from '../_core/model/ve';
 import { PhimAdmin } from '../_core/model/PhimAdmin';
 import { Room } from '../_core/model/genarateRoom.js';
+import { BinhLuan } from '../_core/model/BinhLuan.js';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,11 +18,6 @@ export class PhimService implements OnInit {
   }
   // lấy thông tin phim hiện lên trang chủ
   getPhim() {
-    // return this._http.get(`http://svcy2.myclass.vn/api/QuanLyPhim/LayDanhSachPhim?MaNhom=${this.MaNhom}`, {
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=UTF-8'
-    //   }
-    // });
     return this._http.get(`http://localhost:3000/list-phim`, {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
@@ -30,11 +26,6 @@ export class PhimService implements OnInit {
   }
   // lấy chi tiết phim
   getChiTietPhim(MaPhim) {
-    // return this._http.get(`http://svcy2.myclass.vn/api/QuanLyPhim/LayChiTietPhim?MaPhim=${MaPhim}`, {
-    //   headers: {
-    //     'Content-type': 'application/json;charset=UTF-8'
-    //   }
-    // });
     return this._http.get(`http://localhost:3000/detail/${MaPhim}`, {
       headers: {
         'Content-type': 'application/json;charset=UTF-8'
@@ -50,13 +41,13 @@ export class PhimService implements OnInit {
     });
   }
   // Đặt vé
-  postDatVe(DatVe: Ve) {
-    return this._http.post(`http://svcy2.myclass.vn/api/QuanLyDatVe/DatVe`, DatVe, {
-      headers: {
-        'Content-type': 'application/json;charset=UTF-8'
-      }
-    });
-  }
+  // postDatVe(DatVe: Ve) {
+  //   return this._http.post(`http://svcy2.myclass.vn/api/QuanLyDatVe/DatVe`, DatVe, {
+  //     headers: {
+  //       'Content-type': 'application/json;charset=UTF-8'
+  //     }
+  //   });
+  // }
 
   XoaPhim(maPhim: string) {
     console.log(maPhim);
@@ -94,5 +85,45 @@ export class PhimService implements OnInit {
 
   XoaLichChieu(parentId, childId) {
     return this._http.delete(`http://localhost:3000/room/delete-room/${parentId}/${childId}`);
+  }
+
+  CapNhatChiTietPhongVe(room) {
+    return this._http.put(`http://localhost:3000/room/update-room`, room, {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    });
+  }
+
+  ThemBinhLuan(binhluan: BinhLuan) {
+    return this._http.post(`http://localhost:3000/binhluan/create-comment`, binhluan, {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+  }
+
+  getBinhLuan(MaPhim){
+    return this._http.get(`http://localhost:3000/binhluan/${MaPhim}`, {
+      headers: {
+        'Content-type': 'application/json;charset=UTF-8'
+      }
+    });
+  }
+
+  DatVe(ve: Ve) {
+    return this._http.post(`http://localhost:3000/ticket/create-ticket`, ve, {
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+  }
+
+  getLichSuGiaoDich(taikhoan){
+    return this._http.get(`http://localhost:3000/ticket/${taikhoan}`, {
+      headers: {
+        'Content-type': 'application/json;charset=UTF-8'
+      }
+    });
   }
 }

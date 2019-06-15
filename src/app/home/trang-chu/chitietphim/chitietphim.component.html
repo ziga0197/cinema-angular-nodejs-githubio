@@ -7,7 +7,7 @@
       </div>
       <div class="detail_phim_info">
         <span>{{ PhimChiTiet.NgayKhoiChieu | date: 'dd/MM/yyyy' }}</span>
-        <h1>{{ PhimChiTiet.TenPhim }}</h1>
+        <h3>{{ PhimChiTiet.TenPhim }}</h3>
         <!-- <p>{{ PhimChiTiet.LichChieu[0].ThoiLuong }} phút</p> -->
         <span id="star" *ngFor="let dummy of ' '.repeat(PhimChiTiet.DanhGia).split(''), let x = index">
           <i class="fa fa-star" aria-hidden="true"></i>
@@ -44,6 +44,24 @@
       <p>
         {{PhimChiTiet.MoTa}}
       </p>
+    </div>
+    <div class="comment_section" *ngIf="status == 'comment'">
+      <div class="your_comment">
+        <input *ngIf="userName; else notLogin" placeholder="Bạn nghĩ gì về phim này ?" (keyup.enter)="onEnter($event)" />
+        <ng-template #notLogin>
+          <p style="text-align: center;margin-top: 2rem;">Đăng nhập để bình luận</p>
+        </ng-template>
+        
+      </div>
+      <div class="other_comment" *ngFor="let comment of Comments">
+        <ng-container>
+          <span><i class="fa fa-user"></i> {{comment.TaiKhoanNguoiDung}} </span>
+          <p>
+           {{comment.Comments}}
+          </p>
+        </ng-container>
+
+      </div>
     </div>
   </div>
 </div>

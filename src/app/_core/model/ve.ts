@@ -1,11 +1,8 @@
 export class Ve {
-    MaLichChieu: string;
+    MaPhim: string;
     TaiKhoanNguoiDung: string;
-    DanhSachVe: [
-        {
-            MaGhe: number
-            GiaVe: number
-        }
-    ];
-
+    DanhSachVe: {
+        MaGhe: number
+        GiaVe: number
+    }[];
 }

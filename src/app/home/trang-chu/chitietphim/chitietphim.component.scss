@@ -1,147 +1,186 @@
 .poster {
-  color: white;
-  height: 750px;
-  position: relative;
-  top: 0;
-  left: 0;
-  
-  img:nth-child(1) {
+    color: white;
+    height: 750px;
     position: relative;
     top: 0;
     left: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    filter: blur(15px);
-  }
 
-  &:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    box-shadow: 0px 17px 65px 60px rgb(10, 32, 41);
-    background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
-  }
-
-  .detail {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    height: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    z-index: 10;
-    justify-content: space-between;
-
-    .detail_phim {
-      display: flex;
-      width: 60%;
-      color: white;
-
-      .detail_phim_img {
-        img {
-          filter: none;
-        }
-      }
-
-      .detail_phim_info {
-        margin-left: 15px;
-        text-align: left;
-        padding-top: 15%;
-        font-size: 18px;
-
-        button {
-          display: block;
-          margin-top: 25px;
-          font-size: 18px;
-          padding: 10px 55px;
-        }
-
-        span#star {
-          display: inline-block;
-          margin-top: 25px;
-          font-size: 30px;
-          color: yellow;
-        }
-
-      }
+    img:nth-child(1) {
+        position: relative;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        filter: blur(15px);
     }
 
-    .rate {
-      width: 60%;
-      height: 100%;
-      p{
-        margin-top: 5px;
-        letter-spacing: 2px;
-        line-height: 20px;
-      }
-
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        box-shadow: 0px 17px 65px 60px rgb(10, 32, 41);
+        background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
     }
-  }
 
-  // main ingo
-  .mainInfo {
-    margin-top: 100px;
+    .detail {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        z-index: 10;
+        justify-content: space-between;
 
-    text-align: center;
-    width: 80%;
-    margin: 100px auto;
+        .detail_phim {
+            display: flex;
+            width: 60%;
+            color: white;
 
-    .mainInfo_list {
-      color: white;
-      display: flex;
-      // justify-content: space-around;
-      align-content: center;
-      justify-content: center;
-      list-style-type: none;
-      margin-bottom: 50px;
+            .detail_phim_img {
+                img {
+                    filter: none;
+                }
+            }
 
-      .active {
-        color: #FB4226;
-      }
+            .detail_phim_info {
+                margin-left: 15px;
+                text-align: left;
+                padding-top: 15%;
+                font-size: 18px;
 
-      li {
-        margin: 0 15px;
-        font-size: 20px;
+                button {
+                    display: block;
+                    margin-top: 25px;
+                    font-size: 18px;
+                    padding: 10px 55px;
+                }
 
-        &:hover {
-          color: #FB4226;
-          transition: all 0.5s;
+                span#star {
+                    display: inline-block;
+                    margin-top: 25px;
+                    font-size: 30px;
+                    color: yellow;
+                }
+
+            }
         }
-      }
-    }
 
-    .lichChieu {
-      color: black;
-      background-color: #fff;
-      margin: 0 auto;
-      border-radius: 5px;
+        .rate {
+            width: 60%;
+            height: 100%;
 
-      .gioChieu {
-        padding: 10px 30px;
-        text-align: left;
+            p {
+                margin-top: 5px;
+                letter-spacing: 2px;
+                line-height: 20px;
+            }
 
-        button {
-          font-size: 40px;
-          padding: 20px;
         }
-      }
     }
-    .info{
-      text-align: center;
-      font-size: 20px;
-      width: 80%;
-      margin: 0 auto;
-      font-style: italic;
-      line-height: 2;
-      letter-spacing: 1px;
+
+    // main ingo
+    .mainInfo {
+        margin-top: 100px;
+
+        text-align: center;
+        width: 80%;
+        margin: 100px auto;
+
+        .mainInfo_list {
+            color: white;
+            display: flex;
+            // justify-content: space-around;
+            align-content: center;
+            justify-content: center;
+            list-style-type: none;
+            margin-bottom: 50px;
+
+            .active {
+                color: #FB4226;
+            }
+
+            li {
+                margin: 0 15px;
+                font-size: 20px;
+
+                &:hover {
+                    color: #FB4226;
+                    transition: all 0.5s;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .lichChieu {
+            color: black;
+            background-color: #fff;
+            margin: 0 auto;
+            border-radius: 5px;
+
+            .gioChieu {
+                padding: 10px 30px;
+                text-align: left;
+
+                button {
+                    font-size: 40px;
+                    padding: 20px;
+                }
+            }
+        }
+
+        .info {
+            text-align: center;
+            font-size: 20px;
+            width: 80%;
+            margin: 0 auto;
+            font-style: italic;
+            line-height: 2;
+            letter-spacing: 1px;
+        }
+
+        .comment_section {
+            .your_comment {
+              border: solid 1px white;
+              border-radius: 10px;
+              width: 70%;
+              margin: 0 auto;
+              color: lightslategrey;
+              background-color: #fff;
+              height: 100px;
+              padding-top: 10px;
+              padding-left: 10px;
+              text-align: left;
+              input{
+                display: block;
+                width: 95%;
+                height: 80%;
+                outline: none;
+                border: 0;
+              }
+            }
+            .other_comment{
+              @extend .your_comment;
+              margin: 10px auto;
+              padding: 10px;
+              span{
+                text-align: right;
+                display: inline-block;
+                border-bottom: lightsteelblue;
+                font-size: 20px;
+              };
+              P{
+                  font-style: italic;
+              }
+            }
+        }
     }
-  }
 
 
 }

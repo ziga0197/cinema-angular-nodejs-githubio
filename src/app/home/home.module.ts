@@ -38,7 +38,7 @@ const homeRoutes: Routes = [
         path: 'chi-tiet-phim/:maphim', component: ChitietphimComponent
       },
       {
-        path: 'phong-ve/:malichchieu', component: DanhSachVeComponent, canActivate: [LoginGuard]
+        path: 'phong-ve/:maphim/:malichchieu', component: DanhSachVeComponent, canActivate: [LoginGuard]
       },
       {
         path: 'dang-nhap', component: LoginComponent
